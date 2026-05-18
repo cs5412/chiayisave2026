@@ -1,0 +1,343 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.wrap{padding:1.5rem 0}
+.hero{background:linear-gradient(135deg,#6B3FA0,#4A148C);border-radius:16px;padding:2rem 2rem 1.5rem;margin-bottom:2rem;color:#fff}
+.hero h1{font-size:22px;font-weight:500;margin-bottom:6px}
+.hero p{font-size:14px;opacity:.75}
+.section-label{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:10px;margin-bottom:1.25rem;font-size:15px;font-weight:500}
+.sec-basic{background:#EDE7F6;color:#4A148C}
+.sec-lottery{background:#4A148C;color:#fff}
+.steps{display:flex;flex-direction:column;gap:1rem}
+.step-card{display:grid;grid-template-columns:1fr 130px;gap:0;border-radius:12px;border:.5px solid var(--color-border-tertiary);background:var(--color-background-primary);overflow:hidden}
+.step-left{padding:1rem 1.25rem}
+.step-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.badge-basic{background:#EDE7F6;color:#6B3FA0}
+.badge-lottery{background:#4A148C;color:#fff}
+.step-title{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.step-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:10px}
+.note{font-size:12px;padding:6px 10px;border-radius:6px;margin-bottom:5px;line-height:1.5}
+.note-orange{background:#FFF3E0;color:#BF360C;border-left:3px solid #E65100;border-radius:0 6px 6px 0}
+.note-green{background:#E8F5E9;color:#1B5E20;font-weight:500}
+.note-purple{background:#EDE7F6;color:#4A148C;border-left:3px solid #6B3FA0;border-radius:0 6px 6px 0}
+.step-img{background:var(--color-background-secondary);display:flex;align-items:flex-start;justify-content:center;padding:10px 8px;border-left:.5px solid var(--color-border-tertiary)}
+.phone-frame{width:108px;background:#111;border-radius:14px;padding:6px;box-shadow:0 0 0 1px #333}
+.phone-screen{border-radius:9px;overflow:hidden;background:#fff;aspect-ratio:9/19;display:flex;align-items:center;justify-content:center;font-size:10px;color:#999;position:relative}
+.phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top}
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:40%;height:14px;background:#111;border-radius:0 0 10px 10px;z-index:2}
+.step-num{font-size:22px;font-weight:500;color:#ccc}
+.sep{margin:1.5rem 0 1rem}
+</style>
+
+<div class="wrap">
+  <h2 class="sr-only">折扣活動參與步驟指南，共12步驟</h2>
+
+  <div class="hero">
+    <div style="font-size:28px;margin-bottom:8px">🎁</div>
+    <h1>折扣活動參與步驟</h1>
+    <p>依照以下步驟操作，輕鬆享有專屬折扣優惠</p>
+  </div>
+
+  <div class="section-label sec-basic">
+    <i class="ti ti-device-mobile" aria-hidden="true"></i>
+    基本折扣步驟（所有人適用）
+  </div>
+
+  <div class="steps">
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-basic"><i class="ti ti-circle-1" aria-hidden="true"></i> STEP 1</div>
+        <div class="step-title">掃描店家活動海報 QR code</div>
+        <div class="step-desc">找到店家張貼的活動海報，使用手機相機或掃碼 App 掃描上面的 QR code。</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div style="text-align:center;padding:12px 8px">
+              <div style="width:60px;height:60px;border:2px solid #6B3FA0;border-radius:6px;margin:0 auto 8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;padding:6px">
+                <div style="background:#6B3FA0;border-radius:2px"></div><div style="background:#6B3FA0;border-radius:2px"></div><div style="background:#6B3FA0;border-radius:2px"></div>
+                <div style="background:#6B3FA0;border-radius:2px"></div><div style="background:#fff"></div><div style="background:#6B3FA0;border-radius:2px"></div>
+                <div style="background:#6B3FA0;border-radius:2px"></div><div style="background:#6B3FA0;border-radius:2px"></div><div style="background:#6B3FA0;border-radius:2px"></div>
+              </div>
+              <div style="font-size:10px;color:#6B3FA0;font-weight:500">掃描 QR code</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-basic"><i class="ti ti-circle-2" aria-hidden="true"></i> STEP 2</div>
+        <div class="step-title">點擊「加入好友」</div>
+        <div class="step-desc">掃描後跳出 LINE 官方帳號頁面，點擊藍色「加入好友」按鈕。</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:stretch;justify-content:flex-start;padding:12px 8px">
+            <div class="phone-notch"></div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:18px;margin-bottom:8px">
+              <div style="width:28px;height:28px;border-radius:50%;background:#EDE7F6;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0"><i class="ti ti-leaf" style="color:#6B3FA0;font-size:12px"></i></div>
+              <div style="font-size:9px;font-weight:500;color:#111">自備食器easy購</div>
+            </div>
+            <div style="font-size:8px;color:#888;margin-bottom:10px;line-height:1.4">填問卷享優惠，抽好禮！</div>
+            <div style="background:#06C755;color:#fff;border-radius:4px;text-align:center;padding:5px;font-size:9px;font-weight:500">加入好友</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-basic"><i class="ti ti-circle-3" aria-hidden="true"></i> STEP 3</div>
+        <div class="step-title">點擊「聊天」</div>
+        <div class="step-desc">加入好友後，點擊畫面下方的「聊天」按鈕，進入對話頁面。</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;justify-content:space-between;padding:0">
+            <div class="phone-notch"></div>
+            <div style="flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding-top:14px">
+              <i class="ti ti-message-circle" style="font-size:28px;color:#06C755"></i>
+              <div style="font-size:9px;color:#555">聊天</div>
+            </div>
+            <div style="display:flex;justify-content:space-around;padding:8px 0;border-top:.5px solid #eee">
+              <div style="font-size:8px;color:#06C755;text-align:center"><i class="ti ti-home" style="display:block;font-size:14px"></i>主頁</div>
+              <div style="font-size:8px;color:#06C755;text-align:center"><i class="ti ti-message-circle" style="display:block;font-size:14px"></i>聊天</div>
+              <div style="font-size:8px;color:#aaa;text-align:center"><i class="ti ti-dots" style="display:block;font-size:14px"></i>更多</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-basic"><i class="ti ti-circle-4" aria-hidden="true"></i> STEP 4</div>
+        <div class="step-title">點選「享折扣請點我」</div>
+        <div class="step-desc">在聊天頁面選單中，點選「享折扣請點我」功能按鈕。</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:stretch;justify-content:flex-end;padding:0">
+            <div class="phone-notch"></div>
+            <div style="padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:14px">
+              <div style="background:#EDE7F6;border-radius:6px;padding:8px 6px;text-align:center">
+                <i class="ti ti-tag" style="color:#6B3FA0;font-size:14px;display:block;margin-bottom:2px"></i>
+                <div style="font-size:8px;color:#4A148C;font-weight:500">享折扣請點我</div>
+              </div>
+              <div style="background:#f5f5f5;border-radius:6px;padding:8px 6px;text-align:center">
+                <i class="ti ti-map-pin" style="color:#888;font-size:14px;display:block;margin-bottom:2px"></i>
+                <div style="font-size:8px;color:#888">美食地圖</div>
+              </div>
+              <div style="background:#f5f5f5;border-radius:6px;padding:8px 6px;text-align:center">
+                <i class="ti ti-help" style="color:#888;font-size:14px;display:block;margin-bottom:2px"></i>
+                <div style="font-size:8px;color:#888">Q&A問答</div>
+              </div>
+              <div style="background:#f5f5f5;border-radius:6px;padding:8px 6px;text-align:center">
+                <i class="ti ti-building-store" style="color:#888;font-size:14px;display:block;margin-bottom:2px"></i>
+                <div style="font-size:8px;color:#888">店家清單</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-basic"><i class="ti ti-circle-5" aria-hidden="true"></i> STEP 5</div>
+        <div class="step-title">填寫姓名、電話、店家代碼</div>
+        <div class="step-desc">依序填寫您的姓名、電話號碼，以及當前消費店家的店家代碼。</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:stretch;padding:14px 8px 8px">
+            <div class="phone-notch"></div>
+            <div style="margin-top:6px">
+              <div style="font-size:8px;color:#888;margin-bottom:2px">姓名</div>
+              <div style="border:.5px solid #ddd;border-radius:4px;padding:4px 6px;font-size:9px;color:#333;margin-bottom:6px">王嘉義</div>
+              <div style="font-size:8px;color:#888;margin-bottom:2px">電話</div>
+              <div style="border:.5px solid #ddd;border-radius:4px;padding:4px 6px;font-size:9px;color:#333;margin-bottom:6px">0912345678</div>
+              <div style="font-size:8px;color:#888;margin-bottom:2px">店家代碼</div>
+              <div style="border:.5px solid #6B3FA0;border-radius:4px;padding:4px 6px;font-size:9px;color:#333">100</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-basic"><i class="ti ti-circle-6" aria-hidden="true"></i> STEP 6</div>
+        <div class="step-title">確認折扣項數並點按數量</div>
+        <div class="step-desc">與店家確認本次消費的折扣項數，點按正確數量。</div>
+        <div class="note note-orange" style="margin-bottom:5px">🧋 冷飲店 / 40元餐飲店 → 點選 40元單品</div>
+        <div class="note note-orange" style="margin-bottom:8px">🍱 80元餐飲店 → 點選 80元以上單品</div>
+        <div class="note note-green">✅ 不參加抽獎者，直接點「確認送出」即完成</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:stretch;padding:14px 8px 8px">
+            <div class="phone-notch"></div>
+            <div style="margin-top:4px">
+              <div style="font-size:8px;color:#888;margin-bottom:4px">折扣項數（外帶）</div>
+              <div style="border:.5px solid #EDE7F6;border-radius:6px;padding:6px;margin-bottom:4px;background:#EDE7F6">
+                <div style="font-size:8px;font-weight:500;color:#4A148C;margin-bottom:2px">40元單品</div>
+                <div style="font-size:8px;color:#6B3FA0">折 10元／項</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px">
+                  <div style="width:16px;height:16px;border-radius:50%;border:.5px solid #6B3FA0;display:flex;align-items:center;justify-content:center;font-size:10px;color:#6B3FA0">−</div>
+                  <div style="font-size:13px;font-weight:500;color:#4A148C">1</div>
+                  <div style="width:16px;height:16px;border-radius:50%;background:#6B3FA0;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff">+</div>
+                </div>
+              </div>
+              <div style="background:#6B3FA0;color:#fff;border-radius:4px;text-align:center;padding:5px;font-size:8px;font-weight:500">確認送出</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-basic"><i class="ti ti-circle-7" aria-hidden="true"></i> STEP 7</div>
+        <div class="step-title">出示畫面，享有現折優惠！</div>
+        <div class="step-desc">將此頁面出示給店家人員確認，即可立享現折優惠。</div>
+        <div class="note note-purple">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:center;justify-content:center;padding:14px 8px 8px;gap:6px">
+            <div class="phone-notch"></div>
+            <i class="ti ti-discount-check" style="font-size:28px;color:#2E7D32;margin-top:10px"></i>
+            <div style="font-size:10px;font-weight:500;color:#1B5E20">折扣已記錄！</div>
+            <div style="text-align:center;font-size:8px;color:#555;line-height:1.4">請向店家出示此畫面<br>確認即可享折扣</div>
+            <div style="border:.5px solid #ddd;border-radius:6px;padding:6px 10px;width:100%;margin-top:4px">
+              <div style="display:flex;justify-content:space-between;font-size:8px"><span style="color:#888">折扣合計</span><span style="font-weight:500;color:#2E7D32">NT$ 10</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sep">
+    <div class="section-label sec-lottery">
+      <i class="ti ti-trophy" aria-hidden="true"></i>
+      抽獎加碼步驟（欲參加抽獎者）
+    </div>
+  </div>
+
+  <div class="steps">
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-lottery"><i class="ti ti-circle-8" aria-hidden="true"></i> STEP 8</div>
+        <div class="step-title">點開紫色區域填寫問卷</div>
+        <div class="step-desc">如果想獲得抽獎資格，請點開紫色區域填寫問卷。</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:stretch;padding:14px 8px 8px">
+            <div class="phone-notch"></div>
+            <div style="margin-top:4px;border:1.5px dashed #6B3FA0;border-radius:6px;padding:8px;background:#EDE7F6;text-align:center">
+              <i class="ti ti-gift" style="font-size:18px;color:#6B3FA0;display:block;margin-bottom:4px"></i>
+              <div style="font-size:8px;font-weight:500;color:#4A148C">加碼填寫問卷，參加抽獎！</div>
+              <div style="font-size:7px;color:#6B3FA0;margin-top:2px">完填可參加10月抽獎</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-lottery"><i class="ti ti-circle-9" aria-hidden="true"></i> STEP 9</div>
+        <div class="step-title">同意個人資料蒐集聲明</div>
+        <div class="step-desc">勾選確認同意個人資料蒐集、處理及利用。</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:stretch;padding:14px 8px 8px">
+            <div class="phone-notch"></div>
+            <div style="margin-top:8px;display:flex;gap:6px;align-items:flex-start">
+              <div style="width:14px;height:14px;border-radius:3px;background:#6B3FA0;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px">
+                <i class="ti ti-check" style="font-size:10px;color:#fff"></i>
+              </div>
+              <div style="font-size:8px;color:#333;line-height:1.4">我同意個人資料蒐集、處理及利用</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-lottery">STEP 10</div>
+        <div class="step-title">點選「以作答」</div>
+        <div class="step-desc">點選「以作答」按鈕，開始填寫問卷內容。</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:center;justify-content:center;padding:14px 8px 8px;gap:8px">
+            <div class="phone-notch"></div>
+            <i class="ti ti-pencil" style="font-size:22px;color:#6B3FA0;margin-top:10px"></i>
+            <div style="background:#6B3FA0;color:#fff;border-radius:4px;padding:5px 14px;font-size:9px;font-weight:500">以作答</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-left">
+        <div class="step-badge badge-lottery">STEP 11</div>
+        <div class="step-title">拍攝循環容器消費照片</div>
+        <div class="step-desc">拍攝一張您的自備循環容器於店內消費的照片。</div>
+        <div class="note note-orange" style="margin-bottom:5px">🤖 安卓：先用相機拍照，再填問卷選相片</div>
+        <div class="note note-orange" style="margin-bottom:8px">🍎 iPhone：直接於頁面點此拍照</div>
+        <div class="note note-green">✅ 填答完畢，點選「確認送出」</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:center;justify-content:center;padding:14px 8px 8px;gap:6px">
+            <div class="phone-notch"></div>
+            <i class="ti ti-camera" style="font-size:26px;color:#6B3FA0;margin-top:10px"></i>
+            <div style="font-size:8px;color:#555;text-align:center;line-height:1.4">拍攝自備容器<br>於店內消費照片</div>
+            <div style="border:.5px dashed #6B3FA0;border-radius:6px;width:60px;height:40px;display:flex;align-items:center;justify-content:center">
+              <i class="ti ti-photo" style="font-size:16px;color:#B39DDB"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card" style="border-color:#6B3FA0;border-width:1.5px">
+      <div class="step-left" style="background:linear-gradient(135deg,#EDE7F6,#fff)">
+        <div class="step-badge badge-lottery">STEP 12</div>
+        <div class="step-title" style="color:#4A148C">完成！享折扣＋獲抽獎機會</div>
+        <div class="step-desc">出示此畫面給店家確認，即可享有現折優惠，並獲得抽獎機會！</div>
+        <div class="note note-purple">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
+      </div>
+      <div class="step-img">
+        <div class="phone-frame">
+          <div class="phone-screen" style="flex-direction:column;align-items:center;justify-content:center;padding:14px 8px 8px;gap:5px">
+            <div class="phone-notch"></div>
+            <i class="ti ti-confetti" style="font-size:26px;color:#6B3FA0;margin-top:10px"></i>
+            <div style="font-size:10px;font-weight:500;color:#4A148C">折扣已記錄！</div>
+            <div style="font-size:7px;color:#888;text-align:center;line-height:1.4">已獲得抽獎資格<br>預計10月公布結果</div>
+            <div style="background:#6B3FA0;color:#fff;border-radius:4px;padding:5px 12px;font-size:8px;font-weight:500;margin-top:4px">確認送出</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;padding:1.5rem 0 .5rem;font-size:13px;color:var(--color-text-secondary)">
+    感謝您的參與！如有任何問題請洽詢店家服務人員 🙏
+  </div>
+</div>
