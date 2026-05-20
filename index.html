@@ -1,154 +1,196 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- 引入 Tabler Icons 確保手機能正常顯示圖示 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* Banner-derived palette */
-  --cream:  #F5F0E8;   /* 米色底 */
-  --brown:  #6B4226;   /* 咖啡標題 */
-  --brown2: #8B5E3C;   /* 次要文字 */
-  --green:  #5A7A3A;   /* 橄欖綠 */
-  --green2: #EBF0E0;   /* 淡綠底 */
-  --orange: #D96B2A;   /* 暖橘強調 */
-  --orange2:#FFF0E0;   /* 淡橘底 */
-  --red2:   #FFF0F0;
-  --red:    #C0392B;
-  --border: #D9CFC0;   /* 米色邊框 */
-  --card-bg:#FFFDF8;   /* 卡片底色 */
-  --font:'Noto Sans TC',-apple-system,BlinkMacSystemFont,'Microsoft JhengHei',sans-serif;
+  /* 質感重調：保留核心大地色，但提高明度、加入透光感 */
+  --cream:   #FAF8F5;   
+  --bg-gradient: linear-gradient(135deg, #fdfbf7 0%, #f4f0e6 100%);
+  --brown:   #4A2E1B;   /* 加深標題字，提升對比與高質感 */
+  --brown2:  #7A6250;   
+  --green:   #43632B;   /* 調整為更健康的清新綠 */
+  --green2:  #EBF2E4;   
+  --orange:  #E05A13;   /* 更有活力的暖橘 */
+  --orange2: #FFF2E6;   
+  --red2:    #FFF0F0;
+  --red:     #C0392B;
+  --border:  rgba(217, 207, 192, 0.5); /* 輕量化邊框 */
+  --card-bg: #ffffff;   
+  --shadow:  0 10px 30px rgba(107, 66, 38, 0.05); /* 柔和飄浮陰影 */
+  --shadow-hover: 0 15px 35px rgba(107, 66, 38, 0.12);
+  --font: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-height:1.7;color:var(--brown)}
+html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-height:1.7;color:var(--brown);-webkit-font-smoothing:antialiased}
 
 /* ── page wrapper ── */
-.shell{padding:2.5rem 1.5rem 3rem;background:var(--cream);min-height:100vh}
-.w{max-width:800px;margin:0 auto}
+.shell{
+  padding: 3rem 1.5rem 4rem;
+  background-image: var(--bg-gradient);
+  /* 現代網格底紋背景，讓底色不無聊 */
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, rgba(107,66,38,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(107,66,38,0.02) 1px, transparent 1px), var(--bg-gradient);
+  min-height: 100vh;
+}
+.w{max-width:840px;margin:0 auto}
 
 /* ── Hero banner ── */
 .hero{
-  border-radius:16px;
+  border-radius:24px;
   overflow:hidden;
-  margin-bottom:2.5rem;
-  border:2px solid var(--border);
+  margin-bottom:3rem;
+  box-shadow: 0 15px 35px rgba(74, 46, 27, 0.08);
+  border: 1px solid rgba(255,255,255,0.7);
+  transition: transform 0.3s ease;
+}
+.hero:hover {
+  transform: translateY(-2px);
 }
 .hero img{width:100%;display:block}
 .hero-sub{
-  background:var(--brown);
+  background: linear-gradient(90deg, var(--brown) 0%, #543520 100%);
   color:#fff;
   text-align:center;
-  padding:.75rem 1rem;
-  font-size:15px;
+  padding:1rem;
+  font-size:16px;
+  font-weight: 500;
   letter-spacing:.5px;
 }
 
 /* ── Section label ── */
-.sec{display:flex;align-items:center;gap:14px;margin-bottom:1.5rem}
+.sec{display:flex;align-items:center;gap:16px;margin: 2.5rem 0 1.5rem}
 .sec-pill{
-  font-size:15px;font-weight:700;
-  padding:6px 20px;border-radius:30px;
+  font-size:16px;font-weight:700;
+  padding:8px 24px;border-radius:50px;
   white-space:nowrap;
-  border:2px solid currentColor;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
-.sec-basic{background:var(--green2);color:var(--green)}
-.sec-lottery{background:var(--orange2);color:var(--orange)}
-.sec-line{flex:1;height:2px;border-radius:2px}
+.sec-basic{background:var(--green);color:#fff}
+.sec-lottery{background:var(--orange);color:#fff}
+.sec-line{flex:1;height:3px;border-radius:10px;opacity: 0.5}
 .sec-line-basic{background:var(--green2)}
 .sec-line-lottery{background:var(--orange2)}
 
 /* ── Grid ── */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
+
+/* RWD 響應式：手機版改為單欄 */
+@media(max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .card-wide-inner{grid-template-columns:1fr !important}
+  .card-wide-phone{border-left:none !important;border-top:1px solid var(--border);padding:2rem !important}
+}
 
 /* ── Card ── */
 .card{
-  border-radius:14px;
-  border:2px solid var(--border);
-  background:var(--card-bg);
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
+  border-radius:20px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.card:hover{
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(107, 66, 38, 0.2);
 }
 
-/* Phone area — fixed height so all cards match */
+/* Phone area */
 .card-top{
-  background:var(--cream);
+  background: linear-gradient(to bottom, #ffffff 0%, #FAF8F5 100%);
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:2rem 1rem 1.75rem;
+  padding:2.5rem 1rem 1.75rem;
   position:relative;
-  height:220px;           /* ← unified */
+  height:230px;
   flex-shrink:0;
 }
-.card-top-lottery{background:#FEF6EE}
+.card-top-lottery{background: linear-gradient(to bottom, #ffffff 0%, #FEF8F2 100%);}
 
 /* step badge */
 .step-tag{
-  position:absolute;top:12px;left:12px;
-  font-size:12px;font-weight:700;letter-spacing:.5px;
-  padding:4px 12px;border-radius:30px;
-  border:2px solid currentColor;
+  position:absolute;top:16px;left:16px;
+  font-size:11px;font-weight:900;letter-spacing:1px;
+  padding:4px 14px;border-radius:50px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
-.tag-basic{background:var(--green2);color:var(--green)}
-.tag-lottery{background:var(--orange2);color:var(--orange)}
+.tag-basic { background:var(--green2); color:var(--green); border:1px solid rgba(67,99,43,0.2); }
+.tag-lottery { background:var(--orange2); color:var(--orange); border:1px solid rgba(224,90,19,0.2); }
 
-/* Card body — flex-grow so all fill equal height */
+/* Card body */
 .card-body{
-  padding:1.25rem 1.4rem 1.4rem;
+  padding:1.5rem;
   flex:1;
   display:flex;
   flex-direction:column;
-  gap:8px;
-  border-top:2px solid var(--border);
+  gap:10px;
+  border-top:1px solid var(--border);
+  background:#fff;
 }
-.card-title{font-size:17px;font-weight:700;color:var(--brown);line-height:1.4}
-.card-desc{font-size:15px;color:var(--brown2);line-height:1.75}
+.card-title{font-size:18px;font-weight:700;color:var(--brown);line-height:1.4}
+.card-desc{font-size:14.5px;color:var(--brown2);line-height:1.7}
 
-.notes{display:flex;flex-direction:column;gap:6px;margin-top:10px}
-.note{font-size:14px;padding:8px 13px;border-radius:8px;line-height:1.6;border:1.5px solid transparent}
-.note-or{background:var(--orange2);color:#A04010;border-color:#F0C080;border-left:4px solid var(--orange);border-radius:0 8px 8px 0}
-.note-gr{background:var(--green2);color:var(--green);font-weight:700;border-color:#C5D9A0}
-.note-br{background:#FFF8F0;color:var(--brown2);border-left:4px solid var(--brown);border-color:var(--border);border-radius:0 8px 8px 0}
+/* 任務小提示區塊優化 */
+.notes{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.note{font-size:13.5px;padding:10px 14px;border-radius:10px;line-height:1.6;border:1px solid transparent}
+.note-or{background:#FFF6EE;color:#9E3C00;border-left:4px solid var(--orange)}
+.note-gr{background:#F2F7EC;color:var(--green);font-weight:500;border-left:4px solid var(--green)}
+.note-br{background:#FAF8F5;color:var(--brown2);border-left:4px solid var(--brown)}
 
-/* ── Full-width wide card (step 7, 12) ── */
+/* ── Full-width wide card ── */
 .card-wide{grid-column:1/-1}
-.card-wide-inner{display:grid;grid-template-columns:1fr 120px;align-items:stretch}
-.card-wide-body{padding:1.5rem 1.75rem;display:flex;flex-direction:column;gap:8px}
+.card-wide-inner{display:grid;grid-template-columns:1fr 160px;align-items:stretch}
+.card-wide-body{padding:2rem;display:flex;flex-direction:column;gap:10px}
 .card-wide-phone{
-  background:var(--cream);
+  background: linear-gradient(135deg, #FAF8F5 0%, #F4F0E6 100%);
   display:flex;align-items:center;justify-content:center;
-  padding:1.25rem;
-  border-left:2px solid var(--border);
+  padding:1.5rem;
+  border-left:1px solid var(--border);
   flex-shrink:0;
 }
-.card-wide-phone-lottery{background:#FEF6EE}
+.card-wide-phone-lottery{background: linear-gradient(135deg, #FEF8F2 0%, #FDF0E2 100%);}
 
-/* ── Phone mockup ── */
-.phone{width:88px;background:#222;border-radius:16px;padding:5px;position:relative;flex-shrink:0}
-.notch{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:28px;height:11px;background:#222;border-radius:0 0 8px 8px;z-index:3}
-.screen{border-radius:11px;background:#fff;overflow:hidden;min-height:145px;display:flex;flex-direction:column;position:relative;padding-top:13px;font-family:var(--font)}
+/* ── Phone mockup 內建微發光感 ── */
+.phone{
+  width:94px;background:#1A1A1A;border-radius:20px;padding:6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  position:relative;flex-shrink:0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.notch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:32px;height:12px;background:#1A1A1A;border-radius:0 0 8px 8px;z-index:3}
+.screen{border-radius:15px;background:#fff;overflow:hidden;min-height:155px;display:flex;flex-direction:column;position:relative;padding-top:14px;font-family:var(--font)}
 
 /* phone micro-text */
-.pt{font-family:var(--font);font-size:7.5px;color:#555}
-.pt-sm{font-family:var(--font);font-size:7px;color:#999}
-.p-lbl{font-size:7px;color:#aaa;margin-bottom:1.5px;font-family:var(--font)}
-.p-inp{border:.5px solid #e0e0e0;border-radius:3px;padding:3px 6px;font-size:7.5px;color:#444;margin-bottom:5px;width:100%;font-family:var(--font)}
-.p-btn{border-radius:5px;text-align:center;padding:5px;font-size:8px;font-weight:700;width:100%;font-family:var(--font)}
-.p-btn-g{background:#5A7A3A;color:#fff}
+.pt{font-family:var(--font);font-size:8px;color:#333}
+.pt-sm{font-family:var(--font);font-size:7.5px;color:#777}
+.p-lbl{font-size:7.5px;color:#888;margin-bottom:2px;font-family:var(--font);font-weight:500}
+.p-inp{border:1px solid #E5E5E5;border-radius:4px;padding:4px 6px;font-size:8px;color:#333;margin-bottom:6px;width:100%;font-family:var(--font)}
+.p-btn{border-radius:6px;text-align:center;padding:6px;font-size:8.5px;font-weight:700;width:100%;font-family:var(--font);box-shadow: 0 2px 4px rgba(0,0,0,0.05)}
+.p-btn-g{background:var(--green);color:#fff}
 .p-btn-o{background:var(--orange);color:#fff}
 .p-btn-line{background:#06C755;color:#fff}
 
 /* ── Divider ── */
-.divider{display:flex;align-items:center;gap:14px;margin:2.25rem 0 1.75rem}
-.divider::before,.divider::after{content:'';flex:1;height:2px;border-radius:2px;background:var(--border)}
-.divider span{font-size:14px;color:var(--brown2);white-space:nowrap;font-weight:500}
+.divider{display:flex;align-items:center;gap:16px;margin:3.5rem 0 2.5rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background: linear-gradient(to right, transparent, var(--border), transparent)}
+.divider span{
+  font-size:15px;color:#9E7B63;white-space:nowrap;font-weight:700;
+  background: rgba(107, 66, 38, 0.05); padding: 6px 18px; border-radius: 50px;
+}
 
 /* ── Footer ── */
-.footer{text-align:center;padding:1.25rem 0 .5rem;font-size:14px;color:var(--brown2)}
+.footer{text-align:center;padding:2.5rem 0 1rem;font-size:14px;color:var(--brown2);font-weight:500}
 </style>
 </head>
 <body>
@@ -167,7 +209,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="sec">
   <div class="sec-pill sec-basic">📱 基本折扣步驟</div>
   <div class="sec-line sec-line-basic"></div>
-  <div style="font-size:13px;color:var(--green);font-weight:500;white-space:nowrap">所有人適用</div>
+  <div style="font-size:14px;color:var(--green);font-weight:700;white-space:nowrap;background:var(--green2);padding:4px 12px;border-radius:20px">所有人適用</div>
 </div>
 
 <div class="grid">
@@ -337,7 +379,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
   <div class="card-wide-inner">
     <div class="card-wide-body">
       <div class="step-tag tag-basic" style="position:relative;top:0;left:0;display:inline-block;margin-bottom:14px">STEP 7</div>
-      <div class="card-title" style="font-size:19px">出示畫面，享有現折優惠！</div>
+      <div class="card-title" style="font-size:20px">出示畫面，享有現折優惠！</div>
       <div class="card-desc" style="margin-top:6px">將此頁面出示給店家人員確認，即可立享現折優惠。</div>
       <div class="notes" style="margin-top:14px">
         <div class="note note-br">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
@@ -370,7 +412,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="sec">
   <div class="sec-pill sec-lottery">🎰 抽獎加碼步驟</div>
   <div class="sec-line sec-line-lottery"></div>
-  <div style="font-size:13px;color:var(--orange);font-weight:500;white-space:nowrap">欲參加抽獎者</div>
+  <div style="font-size:14px;color:var(--orange);font-weight:700;white-space:nowrap;background:var(--orange2);padding:4px 12px;border-radius:20px">欲參加抽獎者</div>
 </div>
 
 <div class="grid">
@@ -476,11 +518,11 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 </div>
 
 <!-- Step 12 — full width -->
-<div class="card card-wide" style="border-color:var(--orange);border-width:2.5px">
+<div class="card card-wide" style="border-color:var(--orange);border-width:2px; box-shadow: 0 12px 30px rgba(224,90,19,0.08);">
   <div class="card-wide-inner">
     <div class="card-wide-body">
       <div class="step-tag tag-lottery" style="position:relative;top:0;left:0;display:inline-block;margin-bottom:14px">STEP 12</div>
-      <div class="card-title" style="font-size:19px;color:var(--brown)">完成！享折扣＋獲抽獎機會 🎉</div>
+      <div class="card-title" style="font-size:20px;color:var(--brown)">完成！享折扣＋獲抽獎機會 🎉</div>
       <div class="card-desc" style="margin-top:6px">出示此畫面給店家確認，即可享有現折優惠，並獲得抽獎機會！</div>
       <div class="notes" style="margin-top:14px">
         <div class="note note-br">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
