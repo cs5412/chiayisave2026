@@ -8,145 +8,164 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --p:#6B3FA0;--pd:#4A148C;--pl:#EDE7F6;--pm:#B39DDB;
-  --or:#E65100;--orl:#FFF3E0;
-  --gr:#2E7D32;--grl:#E8F5E9;
-  --bg:var(--color-background-primary);
-  --bg2:var(--color-background-secondary);
-  --border:var(--color-border-tertiary);
-  --tx:var(--color-text-primary);
-  --tx2:var(--color-text-secondary);
-  --font:'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Microsoft JhengHei', sans-serif;
-  --base:16px;
+  /* Banner-derived palette */
+  --cream:  #F5F0E8;   /* 米色底 */
+  --brown:  #6B4226;   /* 咖啡標題 */
+  --brown2: #8B5E3C;   /* 次要文字 */
+  --green:  #5A7A3A;   /* 橄欖綠 */
+  --green2: #EBF0E0;   /* 淡綠底 */
+  --orange: #D96B2A;   /* 暖橘強調 */
+  --orange2:#FFF0E0;   /* 淡橘底 */
+  --red2:   #FFF0F0;
+  --red:    #C0392B;
+  --border: #D9CFC0;   /* 米色邊框 */
+  --card-bg:#FFFDF8;   /* 卡片底色 */
+  --font:'Noto Sans TC',-apple-system,BlinkMacSystemFont,'Microsoft JhengHei',sans-serif;
 }
 
-/* ── outer shell: full-bleed bg, centered column ── */
-.page-shell{
-  background:var(--color-background-secondary);
-  padding:2.5rem 1rem 3rem;
-  min-height:100vh;
-  font-family:var(--font);
-  font-size:var(--base);
-  line-height:1.7;
-}
-.w{
-  max-width:780px;
-  margin:0 auto;
-  background:var(--bg);
-  border-radius:16px;
-  padding:2.5rem 2rem 2.5rem;
-  box-shadow:0 2px 24px rgba(0,0,0,.07);
-}
+html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-height:1.7;color:var(--brown)}
 
-/* ── Hero ── */
+/* ── page wrapper ── */
+.shell{padding:2.5rem 1.5rem 3rem;background:var(--cream);min-height:100vh}
+.w{max-width:800px;margin:0 auto}
+
+/* ── Hero banner ── */
 .hero{
-  border-radius:14px;
-  padding:2.25rem 2rem;
-  margin-bottom:2.25rem;
-  background:linear-gradient(145deg,#4A148C,#6B3FA0 60%,#8B5FC5);
-  position:relative;overflow:hidden;
+  border-radius:16px;
+  overflow:hidden;
+  margin-bottom:2.5rem;
+  border:2px solid var(--border);
 }
-.hero::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.05);right:-50px;top:-70px}
-.hero::after{content:'';position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.04);left:-30px;bottom:-50px}
-.hero-sub{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:2px;margin-bottom:10px}
-.hero-title{font-size:22px;font-weight:700;color:#fff;line-height:1.4;margin-bottom:8px}
-.hero-desc{font-size:15px;color:rgba(255,255,255,.6)}
+.hero img{width:100%;display:block}
+.hero-sub{
+  background:var(--brown);
+  color:#fff;
+  text-align:center;
+  padding:.75rem 1rem;
+  font-size:15px;
+  letter-spacing:.5px;
+}
 
-/* ── Section header ── */
-.sec{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem}
-.sec-line{flex:1;height:1px;background:var(--border)}
-.sec-pill{font-size:13px;font-weight:500;padding:5px 16px;border-radius:20px;white-space:nowrap}
-.sec-basic{background:var(--pl);color:var(--pd)}
-.sec-lottery{background:var(--pd);color:#fff}
+/* ── Section label ── */
+.sec{display:flex;align-items:center;gap:14px;margin-bottom:1.5rem}
+.sec-pill{
+  font-size:15px;font-weight:700;
+  padding:6px 20px;border-radius:30px;
+  white-space:nowrap;
+  border:2px solid currentColor;
+}
+.sec-basic{background:var(--green2);color:var(--green)}
+.sec-lottery{background:var(--orange2);color:var(--orange)}
+.sec-line{flex:1;height:2px;border-radius:2px}
+.sec-line-basic{background:var(--green2)}
+.sec-line-lottery{background:var(--orange2)}
 
 /* ── Grid ── */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem}
 
 /* ── Card ── */
 .card{
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:var(--bg);
+  border-radius:14px;
+  border:2px solid var(--border);
+  background:var(--card-bg);
   overflow:hidden;
-  display:flex;flex-direction:column;
+  display:flex;
+  flex-direction:column;
 }
+
+/* Phone area — fixed height so all cards match */
 .card-top{
-  background:var(--bg2);
-  display:flex;align-items:center;justify-content:center;
-  padding:1.75rem 1rem 1.5rem;
+  background:var(--cream);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem 1rem 1.75rem;
   position:relative;
-  min-height:200px;
+  height:220px;           /* ← unified */
+  flex-shrink:0;
 }
-.card-top-lottery{background:var(--pl)}
+.card-top-lottery{background:#FEF6EE}
+
+/* step badge */
 .step-tag{
   position:absolute;top:12px;left:12px;
-  font-size:11px;font-weight:700;letter-spacing:.8px;
-  padding:3px 11px;border-radius:20px;
-  font-family:var(--font);
+  font-size:12px;font-weight:700;letter-spacing:.5px;
+  padding:4px 12px;border-radius:30px;
+  border:2px solid currentColor;
 }
-.tag-basic{background:rgba(107,63,160,.13);color:var(--p)}
-.tag-lottery{background:rgba(74,20,140,.15);color:var(--pd)}
+.tag-basic{background:var(--green2);color:var(--green)}
+.tag-lottery{background:var(--orange2);color:var(--orange)}
 
-.card-body{padding:1.25rem 1.25rem 1.4rem;flex:1;display:flex;flex-direction:column;gap:6px}
-.card-title{font-size:16px;font-weight:700;color:var(--tx);line-height:1.45}
-.card-desc{font-size:14px;color:var(--tx2);line-height:1.75}
-.notes{display:flex;flex-direction:column;gap:5px;margin-top:10px}
-.note{font-size:13px;padding:7px 12px;border-radius:6px;line-height:1.6}
-.note-or{background:var(--orl);color:#BF360C;border-left:3px solid var(--or);border-radius:0 6px 6px 0}
-.note-gr{background:var(--grl);color:#1B5E20;font-weight:500}
-.note-pu{background:var(--pl);color:var(--pd);border-left:3px solid var(--p);border-radius:0 6px 6px 0}
+/* Card body — flex-grow so all fill equal height */
+.card-body{
+  padding:1.25rem 1.4rem 1.4rem;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  border-top:2px solid var(--border);
+}
+.card-title{font-size:17px;font-weight:700;color:var(--brown);line-height:1.4}
+.card-desc{font-size:15px;color:var(--brown2);line-height:1.75}
 
-/* ── Full-width card ── */
+.notes{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.note{font-size:14px;padding:8px 13px;border-radius:8px;line-height:1.6;border:1.5px solid transparent}
+.note-or{background:var(--orange2);color:#A04010;border-color:#F0C080;border-left:4px solid var(--orange);border-radius:0 8px 8px 0}
+.note-gr{background:var(--green2);color:var(--green);font-weight:700;border-color:#C5D9A0}
+.note-br{background:#FFF8F0;color:var(--brown2);border-left:4px solid var(--brown);border-color:var(--border);border-radius:0 8px 8px 0}
+
+/* ── Full-width wide card (step 7, 12) ── */
 .card-wide{grid-column:1/-1}
-.card-wide-inner{display:grid;grid-template-columns:1fr 108px;align-items:stretch}
-.card-wide-side{
-  background:var(--bg2);
+.card-wide-inner{display:grid;grid-template-columns:1fr 120px;align-items:stretch}
+.card-wide-body{padding:1.5rem 1.75rem;display:flex;flex-direction:column;gap:8px}
+.card-wide-phone{
+  background:var(--cream);
   display:flex;align-items:center;justify-content:center;
-  padding:1rem;
-  border-left:1px solid var(--border);
+  padding:1.25rem;
+  border-left:2px solid var(--border);
+  flex-shrink:0;
 }
-.card-wide-side-lottery{background:var(--pl)}
+.card-wide-phone-lottery{background:#FEF6EE}
 
-/* ── Phone ── */
-.phone{width:86px;background:#1a1a1a;border-radius:15px;padding:5px;position:relative;flex-shrink:0}
-.notch{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:28px;height:11px;background:#1a1a1a;border-radius:0 0 8px 8px;z-index:3}
-.screen{border-radius:10px;background:#fff;overflow:hidden;min-height:148px;display:flex;flex-direction:column;position:relative;padding-top:13px}
+/* ── Phone mockup ── */
+.phone{width:88px;background:#222;border-radius:16px;padding:5px;position:relative;flex-shrink:0}
+.notch{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:28px;height:11px;background:#222;border-radius:0 0 8px 8px;z-index:3}
+.screen{border-radius:11px;background:#fff;overflow:hidden;min-height:145px;display:flex;flex-direction:column;position:relative;padding-top:13px;font-family:var(--font)}
 
-/* phone atoms */
-.p-lbl{font-size:7px;color:#888;margin-bottom:1.5px;font-family:var(--font)}
-.p-inp{border:.5px solid #ddd;border-radius:3px;padding:3px 6px;font-size:7.5px;color:#333;margin-bottom:5px;width:100%;font-family:var(--font)}
-.p-btn{border-radius:4px;text-align:center;padding:5px;font-size:8px;font-weight:700;width:100%;font-family:var(--font)}
-.p-btn-p{background:var(--p);color:#fff}
-.p-btn-g{background:#06C755;color:#fff}
-.p-txt{font-family:var(--font)}
+/* phone micro-text */
+.pt{font-family:var(--font);font-size:7.5px;color:#555}
+.pt-sm{font-family:var(--font);font-size:7px;color:#999}
+.p-lbl{font-size:7px;color:#aaa;margin-bottom:1.5px;font-family:var(--font)}
+.p-inp{border:.5px solid #e0e0e0;border-radius:3px;padding:3px 6px;font-size:7.5px;color:#444;margin-bottom:5px;width:100%;font-family:var(--font)}
+.p-btn{border-radius:5px;text-align:center;padding:5px;font-size:8px;font-weight:700;width:100%;font-family:var(--font)}
+.p-btn-g{background:#5A7A3A;color:#fff}
+.p-btn-o{background:var(--orange);color:#fff}
+.p-btn-line{background:#06C755;color:#fff}
 
 /* ── Divider ── */
-.divider{display:flex;align-items:center;gap:12px;margin:2rem 0 1.5rem}
-.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
-.divider span{font-size:13px;color:var(--tx2);white-space:nowrap}
-
-/* ── Finish card ── */
-.card-finish{border-color:var(--p);border-width:1.5px}
+.divider{display:flex;align-items:center;gap:14px;margin:2.25rem 0 1.75rem}
+.divider::before,.divider::after{content:'';flex:1;height:2px;border-radius:2px;background:var(--border)}
+.divider span{font-size:14px;color:var(--brown2);white-space:nowrap;font-weight:500}
 
 /* ── Footer ── */
-.footer{text-align:center;padding:1rem 0 .25rem;font-size:14px;color:var(--tx2)}
+.footer{text-align:center;padding:1.25rem 0 .5rem;font-size:14px;color:var(--brown2)}
 </style>
 </head>
 <body>
-<div class="page-shell">
+<div class="shell">
 <div class="w">
 
 <!-- Hero -->
 <div class="hero">
-  <div class="hero-sub">活動步驟說明</div>
-  <div class="hero-title">自備食器easy購・嘉eat永續新生活</div>
-  <div class="hero-desc">依照以下步驟操作，輕鬆享有專屬折扣優惠</div>
+  <img src="/mnt/user-data/uploads/0401循環容器活動-橫幅.jpg" alt="自備食器easy購・嘉eat永續新生活活動橫幅">
+  <div class="hero-sub">依照以下步驟操作，輕鬆享有專屬折扣優惠 🎉</div>
 </div>
 
 <!-- Section 1 -->
 <div class="sec">
-  <div class="sec-pill sec-basic">📱 基本折扣步驟・所有人適用</div>
-  <div class="sec-line"></div>
+  <div class="sec-pill sec-basic">📱 基本折扣步驟</div>
+  <div class="sec-line sec-line-basic"></div>
+  <div style="font-size:13px;color:var(--green);font-weight:500;white-space:nowrap">所有人適用</div>
 </div>
 
 <div class="grid">
@@ -157,13 +176,13 @@
     <div class="step-tag tag-basic">STEP 1</div>
     <div class="phone"><div class="notch"></div>
       <div class="screen" style="align-items:center;justify-content:center;gap:6px;padding:18px 8px 12px">
-        <div style="width:54px;height:54px;border-radius:8px;background:var(--pl);display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;padding:8px">
-          <div style="background:var(--p);border-radius:2px"></div><div style="background:var(--p);border-radius:2px"></div><div style="background:var(--p);border-radius:2px"></div>
-          <div style="background:var(--p);border-radius:2px"></div><div style="background:#fff;border-radius:2px;border:.5px solid #ddd"></div><div style="background:var(--p);border-radius:2px"></div>
-          <div style="background:var(--p);border-radius:2px"></div><div style="background:var(--p);border-radius:2px"></div><div style="background:var(--p);border-radius:2px"></div>
+        <div style="width:56px;height:56px;border-radius:10px;background:#EBF0E0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;padding:8px">
+          <div style="background:#5A7A3A;border-radius:2px"></div><div style="background:#5A7A3A;border-radius:2px"></div><div style="background:#5A7A3A;border-radius:2px"></div>
+          <div style="background:#5A7A3A;border-radius:2px"></div><div style="background:#fff;border-radius:2px"></div><div style="background:#5A7A3A;border-radius:2px"></div>
+          <div style="background:#5A7A3A;border-radius:2px"></div><div style="background:#5A7A3A;border-radius:2px"></div><div style="background:#5A7A3A;border-radius:2px"></div>
         </div>
-        <div class="p-txt" style="font-size:8px;color:var(--p);font-weight:700">掃描 QR code</div>
-        <div class="p-txt" style="font-size:7px;color:#bbb">將鏡頭對準海報圖示</div>
+        <div class="pt" style="color:var(--green);font-weight:700">掃描 QR code</div>
+        <div class="pt-sm">將鏡頭對準海報圖示</div>
       </div>
     </div>
   </div>
@@ -180,15 +199,15 @@
     <div class="phone"><div class="notch"></div>
       <div class="screen" style="flex-direction:column;padding:14px 8px 8px">
         <div style="display:flex;align-items:center;gap:5px;padding:4px 0 6px;border-bottom:.5px solid #f0f0f0">
-          <div style="width:20px;height:20px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <i class="ti ti-leaf" style="font-size:11px;color:var(--p)"></i>
+          <div style="width:20px;height:20px;border-radius:50%;background:#EBF0E0;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="ti ti-leaf" style="font-size:11px;color:var(--green)"></i>
           </div>
-          <div class="p-txt" style="font-size:7.5px;font-weight:700;color:#222;line-height:1.3">自備食器easy購<br><span style="font-weight:400;color:#aaa;font-size:6.5px">未認證・好友人數 5,522</span></div>
+          <div class="pt" style="font-weight:700;color:#222;line-height:1.3">自備食器easy購<br><span style="font-weight:400;color:#bbb;font-size:6.5px">未認證・好友人數 5,522</span></div>
           <i class="ti ti-x" style="margin-left:auto;font-size:10px;color:#ccc"></i>
         </div>
         <div style="padding:7px 0;flex:1">
-          <div class="p-txt" style="font-size:7px;color:#666;margin-bottom:8px;line-height:1.5">自備循環容器外帶，填問卷享優惠，抽好禮！</div>
-          <div class="p-btn p-btn-g" style="display:flex;align-items:center;justify-content:center;gap:3px">
+          <div class="pt-sm" style="margin-bottom:8px;line-height:1.5;color:#666">自備循環容器外帶，填問卷享優惠，抽好禮！</div>
+          <div class="p-btn p-btn-line" style="display:flex;align-items:center;justify-content:center;gap:3px">
             <i class="ti ti-user-plus" style="font-size:10px"></i> 加入好友
           </div>
         </div>
@@ -209,12 +228,12 @@
       <div class="screen" style="flex-direction:column;justify-content:space-between;padding:14px 0 0">
         <div style="flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px">
           <i class="ti ti-message-circle" style="font-size:26px;color:#06C755"></i>
-          <div class="p-txt" style="font-size:8.5px;color:#333">聊天</div>
+          <div class="pt" style="color:#333">聊天</div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:.5px solid #eee;padding:5px 0 6px">
-          <div style="text-align:center"><i class="ti ti-home" style="font-size:13px;color:#bbb;display:block"></i><div class="p-txt" style="font-size:6.5px;color:#bbb">主頁</div></div>
-          <div style="text-align:center"><i class="ti ti-message-circle" style="font-size:13px;color:#06C755;display:block"></i><div class="p-txt" style="font-size:6.5px;color:#06C755">聊天</div></div>
-          <div style="text-align:center"><i class="ti ti-dots" style="font-size:13px;color:#bbb;display:block"></i><div class="p-txt" style="font-size:6.5px;color:#bbb">更多</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-top:.5px solid #eee;padding:5px 0 5px">
+          <div style="text-align:center"><i class="ti ti-home" style="font-size:13px;color:#ccc;display:block"></i><div class="pt-sm">主頁</div></div>
+          <div style="text-align:center"><i class="ti ti-message-circle" style="font-size:13px;color:#06C755;display:block"></i><div class="pt-sm" style="color:#06C755">聊天</div></div>
+          <div style="text-align:center"><i class="ti ti-dots" style="font-size:13px;color:#ccc;display:block"></i><div class="pt-sm">更多</div></div>
         </div>
       </div>
     </div>
@@ -232,21 +251,21 @@
     <div class="phone"><div class="notch"></div>
       <div class="screen" style="flex-direction:column;padding:14px 7px 8px;gap:5px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
-          <div style="background:var(--pl);border-radius:7px;padding:8px 5px;text-align:center;border:.5px solid var(--pm)">
-            <i class="ti ti-tag" style="font-size:14px;color:var(--p);display:block;margin-bottom:3px"></i>
-            <div class="p-txt" style="font-size:7px;color:var(--pd);font-weight:700;line-height:1.3">享折扣<br>請點我</div>
+          <div style="background:#EBF0E0;border-radius:7px;padding:8px 5px;text-align:center;border:1.5px solid #C5D9A0">
+            <i class="ti ti-tag" style="font-size:14px;color:var(--green);display:block;margin-bottom:2px"></i>
+            <div class="pt" style="color:#3D5A20;font-weight:700;line-height:1.3">享折扣<br>請點我</div>
           </div>
           <div style="background:#f5f5f5;border-radius:7px;padding:8px 5px;text-align:center">
-            <i class="ti ti-map-pin" style="font-size:14px;color:#ccc;display:block;margin-bottom:3px"></i>
-            <div class="p-txt" style="font-size:7px;color:#ccc">美食地圖</div>
+            <i class="ti ti-map-pin" style="font-size:14px;color:#ccc;display:block;margin-bottom:2px"></i>
+            <div class="pt-sm">美食地圖</div>
           </div>
           <div style="background:#f5f5f5;border-radius:7px;padding:8px 5px;text-align:center">
-            <i class="ti ti-help-circle" style="font-size:14px;color:#ccc;display:block;margin-bottom:3px"></i>
-            <div class="p-txt" style="font-size:7px;color:#ccc">Q&A</div>
+            <i class="ti ti-help-circle" style="font-size:14px;color:#ccc;display:block;margin-bottom:2px"></i>
+            <div class="pt-sm">Q&A</div>
           </div>
           <div style="background:#f5f5f5;border-radius:7px;padding:8px 5px;text-align:center">
-            <i class="ti ti-building-store" style="font-size:14px;color:#ccc;display:block;margin-bottom:3px"></i>
-            <div class="p-txt" style="font-size:7px;color:#ccc">店家清單</div>
+            <i class="ti ti-building-store" style="font-size:14px;color:#ccc;display:block;margin-bottom:2px"></i>
+            <div class="pt-sm">店家清單</div>
           </div>
         </div>
       </div>
@@ -269,7 +288,7 @@
         <div class="p-lbl">電話</div>
         <div class="p-inp">0912345678</div>
         <div class="p-lbl">店家代碼</div>
-        <div class="p-inp" style="border-color:var(--p)">100</div>
+        <div class="p-inp" style="border-color:var(--green)">100</div>
       </div>
     </div>
   </div>
@@ -285,23 +304,23 @@
     <div class="step-tag tag-basic">STEP 6</div>
     <div class="phone"><div class="notch"></div>
       <div class="screen" style="flex-direction:column;padding:14px 8px 8px;gap:4px">
-        <div class="p-txt" style="font-size:7.5px;color:#888">折扣項數（外帶）</div>
-        <div style="background:var(--pl);border-radius:7px;padding:7px">
-          <div class="p-txt" style="font-size:8px;font-weight:700;color:var(--pd)">40元單品</div>
-          <div class="p-txt" style="font-size:7px;color:var(--p);margin-bottom:5px">折 10元／項</div>
+        <div class="pt-sm" style="color:#aaa">折扣項數（外帶）</div>
+        <div style="background:#EBF0E0;border-radius:7px;padding:8px">
+          <div class="pt" style="font-weight:700;color:#3D5A20">40元單品</div>
+          <div class="pt-sm" style="color:var(--green);margin-bottom:5px">折 10元／項</div>
           <div style="display:flex;align-items:center;justify-content:space-between">
-            <div style="width:18px;height:18px;border-radius:50%;border:.5px solid var(--p);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--p);line-height:1">−</div>
-            <div class="p-txt" style="font-size:14px;font-weight:700;color:var(--pd)">1</div>
-            <div style="width:18px;height:18px;border-radius:50%;background:var(--p);display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;line-height:1">+</div>
+            <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--green);line-height:1">−</div>
+            <div class="pt" style="font-size:15px;font-weight:700;color:#3D5A20">1</div>
+            <div style="width:19px;height:19px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;line-height:1">+</div>
           </div>
         </div>
-        <div class="p-btn p-btn-p">確認送出</div>
+        <div class="p-btn p-btn-g">確認送出</div>
       </div>
     </div>
   </div>
   <div class="card-body">
     <div class="card-title">確認折扣項數，點按正確數量</div>
-    <div class="card-desc">與店家確認本次折扣項數，點按正確數量。</div>
+    <div class="card-desc">與店家確認折扣項數，點按正確數量。</div>
     <div class="notes">
       <div class="note note-or">🧋 冷飲店 / 40元餐飲店 → 點選 40元單品</div>
       <div class="note note-or">🍱 80元餐飲店 → 點選 80元以上單品</div>
@@ -310,28 +329,28 @@
   </div>
 </div>
 
-<!-- Step 7 full-width -->
+<!-- Step 7 — full width -->
 <div class="card card-wide">
   <div class="card-wide-inner">
-    <div class="card-body" style="padding:1.5rem 1.75rem">
+    <div class="card-wide-body">
       <div class="step-tag tag-basic" style="position:relative;top:0;left:0;display:inline-block;margin-bottom:14px">STEP 7</div>
-      <div class="card-title" style="font-size:18px">出示畫面，享有現折優惠！</div>
+      <div class="card-title" style="font-size:19px">出示畫面，享有現折優惠！</div>
       <div class="card-desc" style="margin-top:6px">將此頁面出示給店家人員確認，即可立享現折優惠。</div>
       <div class="notes" style="margin-top:14px">
-        <div class="note note-pu">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
+        <div class="note note-br">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
       </div>
     </div>
-    <div class="card-wide-side">
+    <div class="card-wide-phone">
       <div class="phone"><div class="notch"></div>
         <div class="screen" style="flex-direction:column;align-items:center;justify-content:center;padding:16px 8px 10px;gap:6px">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--grl);display:flex;align-items:center;justify-content:center">
-            <i class="ti ti-check" style="font-size:20px;color:var(--gr)"></i>
+          <div style="width:38px;height:38px;border-radius:50%;background:#EBF0E0;display:flex;align-items:center;justify-content:center">
+            <i class="ti ti-check" style="font-size:22px;color:var(--green)"></i>
           </div>
-          <div class="p-txt" style="font-size:9px;font-weight:700;color:#1B5E20">折扣已記錄！</div>
-          <div style="border:.5px solid #eee;border-radius:5px;padding:5px 7px;width:100%">
+          <div class="pt" style="font-weight:700;color:var(--green)">折扣已記錄！</div>
+          <div style="border:1px solid #ddd;border-radius:6px;padding:5px 7px;width:100%">
             <div style="display:flex;justify-content:space-between;align-items:center">
-              <span class="p-txt" style="font-size:7px;color:#aaa">折扣合計</span>
-              <span class="p-txt" style="font-size:12px;font-weight:700;color:var(--gr)">NT$10</span>
+              <span class="pt-sm">折扣合計</span>
+              <span class="pt" style="font-size:12px;font-weight:700;color:var(--green)">NT$10</span>
             </div>
           </div>
         </div>
@@ -342,12 +361,13 @@
 
 </div><!-- /grid basic -->
 
-<div class="divider"><span>以下為選填，欲參加抽獎者繼續</span></div>
+<div class="divider"><span>✦ 以下為選填，欲參加抽獎者繼續 ✦</span></div>
 
 <!-- Section 2 -->
 <div class="sec">
-  <div class="sec-pill sec-lottery">🎰 抽獎加碼步驟・欲參加抽獎者</div>
-  <div class="sec-line"></div>
+  <div class="sec-pill sec-lottery">🎰 抽獎加碼步驟</div>
+  <div class="sec-line sec-line-lottery"></div>
+  <div style="font-size:13px;color:var(--orange);font-weight:500;white-space:nowrap">欲參加抽獎者</div>
 </div>
 
 <div class="grid">
@@ -358,18 +378,18 @@
     <div class="step-tag tag-lottery">STEP 8</div>
     <div class="phone"><div class="notch"></div>
       <div class="screen" style="flex-direction:column;padding:14px 8px 8px;gap:6px">
-        <div class="p-btn p-btn-p" style="opacity:.3">確認送出，獲得折扣</div>
-        <div style="border:1.5px dashed var(--p);border-radius:8px;padding:9px;background:rgba(107,63,160,.05);text-align:center">
-          <i class="ti ti-gift" style="font-size:17px;color:var(--p);display:block;margin-bottom:4px"></i>
-          <div class="p-txt" style="font-size:7.5px;font-weight:700;color:var(--pd)">加碼填問卷，參加抽獎！</div>
-          <div class="p-txt" style="font-size:7px;color:var(--p);margin-top:2px">完填可參加10月抽獎</div>
+        <div class="p-btn p-btn-g" style="opacity:.25">確認送出，獲得折扣</div>
+        <div style="border:1.5px dashed var(--orange);border-radius:8px;padding:9px;background:#FFF8F0;text-align:center">
+          <i class="ti ti-gift" style="font-size:17px;color:var(--orange);display:block;margin-bottom:4px"></i>
+          <div class="pt" style="font-weight:700;color:var(--brown)">加碼填問卷，參加抽獎！</div>
+          <div class="pt-sm" style="color:var(--orange);margin-top:2px">完填可參加10月抽獎</div>
         </div>
       </div>
     </div>
   </div>
   <div class="card-body">
-    <div class="card-title">點開紫色區域填寫問卷</div>
-    <div class="card-desc">想獲得抽獎資格，請點開送出頁面中的紫色問卷區域。</div>
+    <div class="card-title">點開橘色區域填寫問卷</div>
+    <div class="card-desc">想獲得抽獎資格，請點開送出頁面中的問卷區域。</div>
   </div>
 </div>
 
@@ -379,13 +399,13 @@
     <div class="step-tag tag-lottery">STEP 9</div>
     <div class="phone"><div class="notch"></div>
       <div class="screen" style="flex-direction:column;padding:14px 9px 9px;gap:7px">
-        <div class="p-txt" style="font-size:8px;font-weight:700;color:#333">資料使用聲明</div>
-        <div class="p-txt" style="font-size:7px;color:#888;line-height:1.55;background:#f9f9f9;border-radius:4px;padding:6px">本活動依個人資料保護法，蒐集您的資料僅供抽獎使用。</div>
+        <div class="pt" style="font-weight:700;color:#333">資料使用聲明</div>
+        <div class="pt-sm" style="line-height:1.55;background:#f9f9f9;border-radius:4px;padding:6px;color:#888">本活動依個人資料保護法，蒐集您的資料僅供抽獎使用。</div>
         <div style="display:flex;align-items:flex-start;gap:7px">
-          <div style="width:14px;height:14px;border-radius:3px;background:var(--p);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px">
+          <div style="width:14px;height:14px;border-radius:3px;background:var(--orange);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px">
             <i class="ti ti-check" style="font-size:9px;color:#fff"></i>
           </div>
-          <div class="p-txt" style="font-size:7.5px;color:#333;line-height:1.5">我同意個人資料蒐集、處理及利用</div>
+          <div class="pt" style="line-height:1.5;color:#333">我同意個人資料蒐集、處理及利用</div>
         </div>
       </div>
     </div>
@@ -402,19 +422,22 @@
     <div class="step-tag tag-lottery">STEP 10</div>
     <div class="phone"><div class="notch"></div>
       <div class="screen" style="flex-direction:column;padding:14px 8px 8px;gap:5px">
-        <div class="p-txt" style="font-size:8px;font-weight:700;color:#333;line-height:1.4">您今天使用了哪種容器？</div>
+        <div class="pt" style="font-weight:700;color:#333;line-height:1.4">您今天使用了哪種容器？</div>
         <div style="display:flex;flex-direction:column;gap:3px">
-          <div style="border:.5px solid var(--p);border-radius:4px;padding:4px 8px;font-size:7.5px;color:var(--pd);background:var(--pl);display:flex;align-items:center;gap:5px">
-            <div style="width:9px;height:9px;border-radius:50%;background:var(--p);flex-shrink:0"></div><span class="p-txt">自備杯</span>
+          <div style="border:1px solid var(--orange);border-radius:5px;padding:4px 8px;background:#FFF0E0;display:flex;align-items:center;gap:5px">
+            <div style="width:9px;height:9px;border-radius:50%;background:var(--orange);flex-shrink:0"></div>
+            <span class="pt" style="color:var(--brown)">自備杯</span>
           </div>
-          <div style="border:.5px solid #e5e5e5;border-radius:4px;padding:4px 8px;font-size:7.5px;color:#bbb;display:flex;align-items:center;gap:5px">
-            <div style="width:9px;height:9px;border-radius:50%;border:.5px solid #ddd;flex-shrink:0"></div><span class="p-txt">自備餐盒</span>
+          <div style="border:1px solid #e5e5e5;border-radius:5px;padding:4px 8px;display:flex;align-items:center;gap:5px">
+            <div style="width:9px;height:9px;border-radius:50%;border:1px solid #ccc;flex-shrink:0"></div>
+            <span class="pt" style="color:#bbb">自備餐盒</span>
           </div>
-          <div style="border:.5px solid #e5e5e5;border-radius:4px;padding:4px 8px;font-size:7.5px;color:#bbb;display:flex;align-items:center;gap:5px">
-            <div style="width:9px;height:9px;border-radius:50%;border:.5px solid #ddd;flex-shrink:0"></div><span class="p-txt">兩者皆有</span>
+          <div style="border:1px solid #e5e5e5;border-radius:5px;padding:4px 8px;display:flex;align-items:center;gap:5px">
+            <div style="width:9px;height:9px;border-radius:50%;border:1px solid #ccc;flex-shrink:0"></div>
+            <span class="pt" style="color:#bbb">兩者皆有</span>
           </div>
         </div>
-        <div class="p-btn p-btn-p">以作答</div>
+        <div class="p-btn p-btn-o">以作答</div>
       </div>
     </div>
   </div>
@@ -430,11 +453,11 @@
     <div class="step-tag tag-lottery">STEP 11</div>
     <div class="phone"><div class="notch"></div>
       <div class="screen" style="flex-direction:column;align-items:center;padding:18px 9px 12px;gap:7px">
-        <div style="width:68px;height:52px;border:.5px dashed var(--pm);border-radius:8px;background:rgba(107,63,160,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px">
-          <i class="ti ti-camera-plus" style="font-size:18px;color:var(--p)"></i>
-          <div class="p-txt" style="font-size:7px;color:var(--p)">點此拍照</div>
+        <div style="width:68px;height:52px;border:1.5px dashed #F0C080;border-radius:8px;background:#FFF8F0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px">
+          <i class="ti ti-camera-plus" style="font-size:18px;color:var(--orange)"></i>
+          <div class="pt-sm" style="color:var(--orange)">點此拍照</div>
         </div>
-        <div class="p-txt" style="font-size:7.5px;color:#aaa;text-align:center;line-height:1.5">拍攝自備容器<br>於店內消費照片</div>
+        <div class="pt-sm" style="text-align:center;line-height:1.5;color:#aaa">拍攝自備容器<br>於店內消費照片</div>
       </div>
     </div>
   </div>
@@ -449,29 +472,29 @@
   </div>
 </div>
 
-<!-- Step 12 full-width -->
-<div class="card card-wide card-finish">
+<!-- Step 12 — full width -->
+<div class="card card-wide" style="border-color:var(--orange);border-width:2.5px">
   <div class="card-wide-inner">
-    <div class="card-body" style="padding:1.5rem 1.75rem">
+    <div class="card-wide-body">
       <div class="step-tag tag-lottery" style="position:relative;top:0;left:0;display:inline-block;margin-bottom:14px">STEP 12</div>
-      <div class="card-title" style="font-size:18px;color:var(--pd)">完成！享折扣＋獲抽獎機會 🎉</div>
+      <div class="card-title" style="font-size:19px;color:var(--brown)">完成！享折扣＋獲抽獎機會 🎉</div>
       <div class="card-desc" style="margin-top:6px">出示此畫面給店家確認，即可享有現折優惠，並獲得抽獎機會！</div>
       <div class="notes" style="margin-top:14px">
-        <div class="note note-pu">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
+        <div class="note note-br">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
       </div>
     </div>
-    <div class="card-wide-side card-wide-side-lottery">
+    <div class="card-wide-phone card-wide-phone-lottery">
       <div class="phone"><div class="notch"></div>
         <div class="screen" style="flex-direction:column;align-items:center;justify-content:center;padding:16px 8px 10px;gap:6px">
-          <div style="width:36px;height:36px;border-radius:50%;background:var(--pl);display:flex;align-items:center;justify-content:center">
-            <i class="ti ti-trophy" style="font-size:19px;color:var(--p)"></i>
+          <div style="width:38px;height:38px;border-radius:50%;background:#FFF0E0;display:flex;align-items:center;justify-content:center">
+            <i class="ti ti-trophy" style="font-size:20px;color:var(--orange)"></i>
           </div>
-          <div class="p-txt" style="font-size:9px;font-weight:700;color:var(--pd)">折扣已記錄！</div>
-          <div class="p-txt" style="font-size:7px;color:#aaa;text-align:center;line-height:1.5">已獲得抽獎資格<br>預計10月公布結果</div>
-          <div style="border:.5px solid var(--pm);border-radius:5px;padding:5px 7px;width:100%">
+          <div class="pt" style="font-weight:700;color:var(--brown)">折扣已記錄！</div>
+          <div class="pt-sm" style="text-align:center;line-height:1.5;color:#aaa">已獲得抽獎資格<br>預計10月公布結果</div>
+          <div style="border:1px solid #F0C080;border-radius:6px;padding:5px 7px;width:100%">
             <div style="display:flex;justify-content:space-between;align-items:center">
-              <span class="p-txt" style="font-size:7px;color:#aaa">折扣合計</span>
-              <span class="p-txt" style="font-size:12px;font-weight:700;color:var(--p)">NT$10</span>
+              <span class="pt-sm">折扣合計</span>
+              <span class="pt" style="font-size:12px;font-weight:700;color:var(--orange)">NT$10</span>
             </div>
           </div>
         </div>
@@ -485,6 +508,6 @@
 <div class="footer">感謝您的參與！如有任何問題請洽詢店家服務人員 🙏</div>
 
 </div><!-- /w -->
-</div><!-- /page-shell -->
+</div><!-- /shell -->
 </body>
 </html>
