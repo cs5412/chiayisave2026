@@ -9,19 +9,17 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* 溫潤耐看的大地色系 */
-  --cream:   #F7F4EE;   /* 純淨乾淨的米色底 */
+  --cream:   #F7F4EE;   
   --brown:   #543520;   
   --brown2:  #7A6250;   
   --green:   #4A6B32;   
   --green2:  #F0F5EB;   
   --orange:  #DC5A18;   
   --orange2: #FFF4EB;   
-  --border:  rgba(139, 94, 60, 0.15); /* 輕柔溫暖的邊框線 */
+  --border:  rgba(139, 94, 60, 0.15); 
   --card-bg: #ffffff;   
   --font: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
   
-  /* 微立體高質感陰影 (軟彈立體感) */
   --shadow-soft: 0 8px 24px rgba(84, 53, 32, 0.05), 0 2px 6px rgba(84, 53, 32, 0.02);
   --shadow-hover: 0 16px 32px rgba(84, 53, 32, 0.1), 0 4px 12px rgba(84, 53, 32, 0.04);
 }
@@ -73,7 +71,6 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 /* ── Grid ── */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
 
-/* RWD 響應式：手機版改為單欄 */
 @media(max-width:640px){
   .grid{grid-template-columns:1fr}
   .card-wide-inner{grid-template-columns:1fr !important}
@@ -97,7 +94,6 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
   border-color: rgba(84, 53, 32, 0.25);
 }
 
-/* 圖片顯示區域 — 固定高度，水平垂直置中 */
 .card-top{
   background: linear-gradient(to bottom, #ffffff 0%, #FDFDFB 100%);
   display:flex;
@@ -105,18 +101,41 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
   justify-content:center;
   padding:2rem 1rem;
   position:relative;
-  height:280px; /* 稍微增加高度以容納圖片 */
+  height:310px; /* 增加高度以容納放大的手機 */
   flex-shrink:0;
 }
 .card-top-lottery{background: linear-gradient(to bottom, #ffffff 0%, #FFFDFB 100%);}
 
-/* 插入圖片最適大小設定 */
-.step-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 替換原本手機殼的立體感 */
+/* ── Phone mockup ── */
+.phone{
+  width:130px !important;
+  height:260px !important;
+  background:#1A1A1A;
+  border-radius:20px;
+  padding:6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  position:relative;
+  flex-shrink:0 !important;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.notch{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:36px;height:12px;background:#1A1A1A;border-radius:0 0 8px 8px;z-index:3
+}
+.screen{
+  border-radius:14px;
+  background:#fff;
+  overflow:hidden;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
 }
 
 /* step badge */
@@ -151,14 +170,14 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 
 /* ── Full-width wide card ── */
 .card-wide{grid-column:1/-1}
-.card-wide-inner{display:grid;grid-template-columns:1fr 180px;align-items:stretch}
+.card-wide-inner{display:grid;grid-template-columns:1fr 200px;align-items:stretch}
 .card-wide-body{padding:2rem;display:flex;flex-direction:column;gap:10px;justify-content:center}
 .card-wide-phone{
   background: #FAF8F5;
   display:flex;align-items:center;justify-content:center;
   padding:1.5rem;
   border-left:1px solid var(--border);
-  min-height: 280px;
+  min-height: 310px;
 }
 .card-wide-phone-lottery{background: #FFFBF7;}
 
@@ -198,7 +217,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top">
     <div class="step-tag tag-basic">STEP 1</div>
-    <img src="step1.png" class="step-img" alt="手機掃描店家活動海報上QR code">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step1.png" alt="步驟1"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">掃描活動海報 QR code</div>
@@ -209,7 +231,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top">
     <div class="step-tag tag-basic">STEP 2</div>
-    <img src="step2.png" class="step-img" alt="點擊加入好友">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step2.png" alt="步驟2"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">點擊「加入好友」</div>
@@ -220,7 +245,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top">
     <div class="step-tag tag-basic">STEP 3</div>
-    <img src="step3.png" class="step-img" alt="點擊聊天">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step3.png" alt="步驟3"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">點擊「聊天」</div>
@@ -231,7 +259,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top">
     <div class="step-tag tag-basic">STEP 4</div>
-    <img src="step4.png" class="step-img" alt="點選享折扣請點我">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step4.png" alt="步驟4"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">點選「享折扣請點我」</div>
@@ -242,7 +273,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top">
     <div class="step-tag tag-basic">STEP 5</div>
-    <img src="step5.png" class="step-img" alt="填寫姓名電話店家代碼">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step5.png" alt="步驟5"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">填寫姓名、電話、店家代碼</div>
@@ -253,7 +287,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top">
     <div class="step-tag tag-basic">STEP 6</div>
-    <img src="step6.png" class="step-img" alt="確認折扣項數">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step6.png" alt="步驟6"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">確認折扣項數，點按正確數量</div>
@@ -277,7 +314,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
       </div>
     </div>
     <div class="card-wide-phone">
-      <img src="step7.png" class="step-img" alt="出示折扣憑證畫面">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step7.png" alt="步驟7"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -295,7 +335,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top card-top-lottery">
     <div class="step-tag tag-lottery">STEP 8</div>
-    <img src="step8.png" class="step-img" alt="點開紫色區域填寫問卷">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step8.png" alt="步驟8"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">點開紫色區域填寫問卷</div>
@@ -306,7 +349,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top card-top-lottery">
     <div class="step-tag tag-lottery">STEP 9</div>
-    <img src="step9.png" class="step-img" alt="勾選同意個人資料蒐集">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step9.png" alt="步驟9"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">同意個人資料蒐集聲明</div>
@@ -317,7 +363,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top card-top-lottery">
     <div class="step-tag tag-lottery">STEP 10</div>
-    <img src="step10.png" class="step-img" alt="點選作答問卷">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step10.png" alt="步驟10"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">點選以作答</div>
@@ -328,7 +377,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="card">
   <div class="card-top card-top-lottery">
     <div class="step-tag tag-lottery">STEP 11</div>
-    <img src="step11.png" class="step-img" alt="拍攝循環容器消費照片">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><img src="step11.png" alt="步驟11"></div>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-title">拍攝循環容器消費照片</div>
@@ -352,7 +404,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
       </div>
     </div>
     <div class="card-wide-phone card-wide-phone-lottery">
-      <img src="step12.png" class="step-img" alt="完成憑證與抽獎資格畫面">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step12.png" alt="步驟12"></div>
+      </div>
     </div>
   </div>
 </div>
