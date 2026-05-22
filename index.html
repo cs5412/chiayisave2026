@@ -15,37 +15,26 @@
   --green2:  #F0F5EB;
   --orange:  #DC5A18;
   --orange2: #FFF4EB;
-  --border:  rgba(139, 94, 60, 0.15);
+  --border:  rgba(139,94,60,0.15);
   --card-bg: #ffffff;
-  --font: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
-  --shadow-soft: 0 8px 24px rgba(84,53,32,0.07), 0 2px 6px rgba(84,53,32,0.03);
-  --shadow-hover: 0 20px 40px rgba(84,53,32,0.12), 0 4px 12px rgba(84,53,32,0.05);
+  --font: 'Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;
+  --shadow-soft: 0 8px 24px rgba(84,53,32,0.07),0 2px 6px rgba(84,53,32,0.03);
+  --shadow-hover: 0 20px 40px rgba(84,53,32,0.12),0 4px 12px rgba(84,53,32,0.05);
 }
 
 html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-height:1.7;color:var(--brown);-webkit-font-smoothing:antialiased}
 
 .shell{padding:3rem 1.5rem 5rem;min-height:100vh}
-.w{max-width:860px;margin:0 auto}
+.w{max-width:960px;margin:0 auto}
 
 /* ── Hero ── */
-.hero{
-  border-radius:20px;overflow:hidden;margin-bottom:3rem;
-  box-shadow:0 12px 30px rgba(84,53,32,0.1);
-  border:1px solid rgba(255,255,255,0.6);
-}
+.hero{border-radius:20px;overflow:hidden;margin-bottom:3rem;box-shadow:0 12px 30px rgba(84,53,32,0.1);border:1px solid rgba(255,255,255,0.6)}
 .hero img{width:100%;display:block}
-.hero-sub{
-  background:var(--brown);color:#fff;text-align:center;
-  padding:1rem;font-size:15.5px;font-weight:500;letter-spacing:.5px;
-}
+.hero-sub{background:var(--brown);color:#fff;text-align:center;padding:1rem;font-size:15.5px;font-weight:500;letter-spacing:.5px}
 
 /* ── Section label ── */
 .sec{display:flex;align-items:center;gap:16px;margin:3.5rem 0 2rem}
-.sec-pill{
-  font-size:15.5px;font-weight:700;padding:8px 24px;border-radius:50px;
-  white-space:nowrap;background:#fff;
-  box-shadow:0 4px 10px rgba(84,53,32,0.05);
-}
+.sec-pill{font-size:15.5px;font-weight:700;padding:8px 24px;border-radius:50px;white-space:nowrap;background:#fff;box-shadow:0 4px 10px rgba(84,53,32,0.05)}
 .sec-basic{border:2px solid var(--green);color:var(--green)}
 .sec-lottery{border:2px solid var(--orange);color:var(--orange)}
 .sec-line{flex:1;height:2px;border-radius:10px}
@@ -55,77 +44,56 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 .sec-badge-basic{color:var(--green);background:var(--green2)}
 .sec-badge-lottery{color:var(--orange);background:var(--orange2)}
 
-/* ── Step row ── */
+/* ── Step rows ── */
 .steps{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem}
 
 .step-row{
   display:grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns:320px 1fr;   /* wider phone column */
   border-radius:20px;
   border:1px solid var(--border);
   background:var(--card-bg);
   overflow:hidden;
   box-shadow:var(--shadow-soft);
   transition:all .3s cubic-bezier(.25,.8,.25,1);
-  min-height:300px;
 }
-.step-row:hover{
-  transform:translateY(-3px);
-  box-shadow:var(--shadow-hover);
-  border-color:rgba(84,53,32,0.22);
-}
+.step-row:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:rgba(84,53,32,0.22)}
 .step-row.lottery{border-color:rgba(220,90,24,0.18)}
 .step-row.lottery:hover{border-color:rgba(220,90,24,0.4)}
 
 /* phone panel */
 .step-phone-panel{
-  background:linear-gradient(160deg,#fafafa 0%,#f3f0ea 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
-  padding:1.5rem 1.5rem 2rem;
+  background:linear-gradient(160deg,#fafafa 0%,#f0ece4 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  padding:2rem 2rem 2.5rem;
   border-right:1px solid var(--border);
 }
-.step-row.lottery .step-phone-panel{
-  background:linear-gradient(160deg,#fffdf9 0%,#fff0e0 100%);
-  border-right-color:rgba(220,90,24,0.15);
-}
+.step-row.lottery .step-phone-panel{background:linear-gradient(160deg,#fffdf9 0%,#ffe8d0 100%);border-right-color:rgba(220,90,24,0.15)}
 
-/* step number badge above phone */
-.step-num{
-  font-size:11.5px;font-weight:900;letter-spacing:.5px;
-  padding:5px 16px;border-radius:50px;flex-shrink:0;
-}
+/* step badge */
+.step-num{font-size:12px;font-weight:900;letter-spacing:.5px;padding:5px 18px;border-radius:50px;flex-shrink:0}
 .step-num-basic{background:var(--green2);color:var(--green)}
 .step-num-lottery{background:var(--orange2);color:var(--orange)}
 
-/* phone mockup */
+/* phone mockup — larger */
 .phone{
-  width:150px;height:306px;
-  background:#1A1A1A;border-radius:24px;padding:8px;
-  box-shadow:0 10px 28px rgba(0,0,0,0.18),0 2px 6px rgba(0,0,0,0.1);
+  width:240px;height:490px;          /* ~2× bigger than before */
+  background:#1A1A1A;border-radius:36px;padding:10px;
+  box-shadow:0 16px 40px rgba(0,0,0,0.22),0 4px 10px rgba(0,0,0,0.12);
   position:relative;flex-shrink:0;
   border:1px solid rgba(255,255,255,0.06);
 }
-.notch{
-  position:absolute;top:8px;left:50%;transform:translateX(-50%);
-  width:40px;height:13px;background:#1A1A1A;border-radius:0 0 9px 9px;z-index:3;
-}
-.screen{
-  border-radius:17px;background:#fff;overflow:hidden;
-  height:100%;display:flex;flex-direction:column;position:relative;
-}
-.screen img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:56px;height:16px;background:#1A1A1A;border-radius:0 0 12px 12px;z-index:3}
+.screen{border-radius:28px;background:#fff;overflow:hidden;height:100%;display:flex;flex-direction:column;position:relative}
+.screen img{width:100%;height:100%;object-fit:cover;object-position:top center;image-rendering:auto}
 
 /* text panel */
-.step-body{
-  padding:2rem 2.5rem;
-  display:flex;flex-direction:column;
-  justify-content:center;gap:12px;
-}
-.step-title{font-size:20px;font-weight:800;color:var(--brown);line-height:1.4}
-.step-desc{font-size:15px;color:var(--brown2);line-height:1.8}
+.step-body{padding:2.5rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.step-title{font-size:21px;font-weight:800;color:var(--brown);line-height:1.4}
+.step-desc{font-size:15.5px;color:var(--brown2);line-height:1.85}
 
 .notes{display:flex;flex-direction:column;gap:8px;margin-top:6px}
-.note{font-size:14px;padding:10px 16px;border-radius:10px;line-height:1.65;font-weight:500}
+.note{font-size:14.5px;padding:11px 16px;border-radius:10px;line-height:1.65;font-weight:500}
 .note-or{background:#FFF7F0;color:#A84000;border-left:4px solid var(--orange)}
 .note-gr{background:#F3F7EE;color:var(--green);border-left:4px solid var(--green)}
 .note-br{background:#FAF8F5;color:var(--brown2);border-left:4px solid var(--brown)}
@@ -133,20 +101,16 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 /* ── Divider ── */
 .divider{display:flex;align-items:center;gap:16px;margin:4rem 0 3rem}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(139,94,60,.3),transparent)}
-.divider span{
-  font-size:14px;color:#8F4214;white-space:nowrap;font-weight:700;
-  background:#FFEFE2;padding:7px 22px;border-radius:50px;
-  border:1px solid rgba(220,90,24,.15);
-  box-shadow:0 2px 6px rgba(220,90,24,.06);
-}
+.divider span{font-size:14px;color:#8F4214;white-space:nowrap;font-weight:700;background:#FFEFE2;padding:7px 22px;border-radius:50px;border:1px solid rgba(220,90,24,.15);box-shadow:0 2px 6px rgba(220,90,24,.06)}
 
 /* ── Footer ── */
 .footer{text-align:center;padding:3rem 0 1.5rem;font-size:14px;color:var(--brown2);font-weight:500}
 
 /* ── Responsive ── */
-@media(max-width:640px){
+@media(max-width:700px){
   .step-row{grid-template-columns:1fr}
   .step-phone-panel{border-right:none;border-bottom:1px solid var(--border);padding:2rem}
+  .phone{width:180px;height:368px}
   .step-body{padding:1.5rem}
   .step-title{font-size:17px}
 }
@@ -267,7 +231,9 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-</div><!-- /steps -->
+  <!-- (原 STEP 7 已刪除) -->
+
+</div><!-- /steps basic -->
 
 <div class="divider"><span>✦ 以下為選填，欲參加抽獎者繼續 ✦</span></div>
 
@@ -280,10 +246,10 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 
 <div class="steps">
 
-  <!-- STEP 7 -->
+  <!-- STEP 7 (原8) -->
   <div class="step-row lottery">
     <div class="step-phone-panel">
-      <div class="step-num step-num-lottery">STEP 8</div>
+      <div class="step-num step-num-lottery">STEP 7</div>
       <div class="phone">
         <div class="notch"></div>
         <div class="screen"><img src="step8.png" alt="步驟7"></div>
@@ -295,7 +261,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- STEP 8 -->
+  <!-- STEP 8 (原9) -->
   <div class="step-row lottery">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 8</div>
@@ -310,7 +276,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- STEP 9 -->
+  <!-- STEP 9 (原10) -->
   <div class="step-row lottery">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 9</div>
@@ -325,7 +291,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- STEP 10 -->
+  <!-- STEP 10 (原11) -->
   <div class="step-row lottery">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 10</div>
@@ -345,7 +311,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- STEP 11 -->
+  <!-- STEP 11 (原12) -->
   <div class="step-row lottery" style="border-color:rgba(220,90,24,0.35);border-width:2px;box-shadow:0 12px 30px rgba(220,90,24,0.08)">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 11</div>
@@ -363,7 +329,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-</div><!-- /steps -->
+</div><!-- /steps lottery -->
 
 <div class="footer">感謝您的參與！如有任何問題請洽詢官方LINE@客服 🙏</div>
 
