@@ -5,194 +5,151 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:   #F7F4EE;   
-  --brown:   #543520;   
-  --brown2:  #7A6250;   
-  --green:   #4A6B32;   
-  --green2:  #F0F5EB;   
-  --orange:  #DC5A18;   
-  --orange2: #FFF4EB;   
-  --border:  rgba(139, 94, 60, 0.15); 
-  --card-bg: #ffffff;   
+  --cream:   #F7F4EE;
+  --brown:   #543520;
+  --brown2:  #7A6250;
+  --green:   #4A6B32;
+  --green2:  #F0F5EB;
+  --orange:  #DC5A18;
+  --orange2: #FFF4EB;
+  --border:  rgba(139, 94, 60, 0.15);
+  --card-bg: #ffffff;
   --font: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
-  
-  --shadow-soft: 0 8px 24px rgba(84, 53, 32, 0.05), 0 2px 6px rgba(84, 53, 32, 0.02);
-  --shadow-hover: 0 16px 32px rgba(84, 53, 32, 0.1), 0 4px 12px rgba(84, 53, 32, 0.04);
+  --shadow-soft: 0 8px 24px rgba(84,53,32,0.07), 0 2px 6px rgba(84,53,32,0.03);
+  --shadow-hover: 0 20px 40px rgba(84,53,32,0.12), 0 4px 12px rgba(84,53,32,0.05);
 }
 
 html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-height:1.7;color:var(--brown);-webkit-font-smoothing:antialiased}
 
-/* ── page wrapper ── */
-.shell{
-  padding: 3rem 1.5rem 4rem;
-  background: var(--cream);
-  min-height: 100vh;
-}
-.w{max-width:840px;margin:0 auto}
+.shell{padding:3rem 1.5rem 5rem;min-height:100vh}
+.w{max-width:860px;margin:0 auto}
 
-/* ── Hero banner ── */
+/* ── Hero ── */
 .hero{
-  border-radius:20px;
-  overflow:hidden;
-  margin-bottom:3rem;
-  box-shadow: 0 12px 30px rgba(84, 53, 32, 0.08);
-  border: 1px solid rgba(255,255,255,0.6);
+  border-radius:20px;overflow:hidden;margin-bottom:3rem;
+  box-shadow:0 12px 30px rgba(84,53,32,0.1);
+  border:1px solid rgba(255,255,255,0.6);
 }
 .hero img{width:100%;display:block}
 .hero-sub{
-  background: var(--brown);
-  color:#fff;
-  text-align:center;
-  padding:1rem;
-  font-size:15.5px;
-  font-weight: 500;
-  letter-spacing:.5px;
+  background:var(--brown);color:#fff;text-align:center;
+  padding:1rem;font-size:15.5px;font-weight:500;letter-spacing:.5px;
 }
 
 /* ── Section label ── */
-.sec{display:flex;align-items:center;gap:16px;margin: 3rem 0 1.5rem}
+.sec{display:flex;align-items:center;gap:16px;margin:3.5rem 0 2rem}
 .sec-pill{
-  font-size:16px;font-weight:700;
-  padding:8px 22px;border-radius:50px;
-  white-space:nowrap;
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(84, 53, 32, 0.04);
+  font-size:15.5px;font-weight:700;padding:8px 24px;border-radius:50px;
+  white-space:nowrap;background:#fff;
+  box-shadow:0 4px 10px rgba(84,53,32,0.05);
 }
-.sec-basic{border: 2px solid var(--green); color:var(--green)}
-.sec-lottery{border: 2px solid var(--orange); color:var(--orange)}
+.sec-basic{border:2px solid var(--green);color:var(--green)}
+.sec-lottery{border:2px solid var(--orange);color:var(--orange)}
 .sec-line{flex:1;height:2px;border-radius:10px}
-.sec-line-basic{background: var(--green); opacity: 0.2;}
-.sec-line-lottery{background: var(--orange); opacity: 0.2;}
+.sec-line-basic{background:var(--green);opacity:.2}
+.sec-line-lottery{background:var(--orange);opacity:.2}
+.sec-badge{font-size:13px;font-weight:700;white-space:nowrap;padding:4px 14px;border-radius:20px}
+.sec-badge-basic{color:var(--green);background:var(--green2)}
+.sec-badge-lottery{color:var(--orange);background:var(--orange2)}
 
-/* ── Grid ── */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem}
+/* ── Step row ── */
+.steps{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem}
 
-@media(max-width:640px){
-  .grid{grid-template-columns:1fr}
-  .card-wide-inner{grid-template-columns:1fr !important}
-  .card-wide-phone{border-left:none !important;border-top:1px solid var(--border);padding:2rem !important}
-}
-
-/* ── Card ── */
-.card{
-  border-radius:18px;
-  border: 1px solid var(--border);
-  background: var(--card-bg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.card:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(84, 53, 32, 0.25);
-}
-
-.card-top{
-  background: linear-gradient(to bottom, #ffffff 0%, #FDFDFB 100%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:2rem 1rem;
-  position:relative;
-  height:310px; /* 增加高度以容納放大的手機 */
-  flex-shrink:0;
-}
-.card-top-lottery{background: linear-gradient(to bottom, #ffffff 0%, #FFFDFB 100%);}
-
-/* ── Phone mockup ── */
-.phone{
-  width:130px !important;
-  height:260px !important;
-  background:#1A1A1A;
+.step-row{
+  display:grid;
+  grid-template-columns: 220px 1fr;
   border-radius:20px;
-  padding:6px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  position:relative;
-  flex-shrink:0 !important;
-  border: 1px solid rgba(255,255,255,0.08);
+  border:1px solid var(--border);
+  background:var(--card-bg);
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
+  transition:all .3s cubic-bezier(.25,.8,.25,1);
+  min-height:300px;
+}
+.step-row:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-hover);
+  border-color:rgba(84,53,32,0.22);
+}
+.step-row.lottery{border-color:rgba(220,90,24,0.18)}
+.step-row.lottery:hover{border-color:rgba(220,90,24,0.4)}
+
+/* phone panel */
+.step-phone-panel{
+  background:linear-gradient(160deg,#fafafa 0%,#f3f0ea 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  padding:1.5rem 1.5rem 2rem;
+  border-right:1px solid var(--border);
+}
+.step-row.lottery .step-phone-panel{
+  background:linear-gradient(160deg,#fffdf9 0%,#fff0e0 100%);
+  border-right-color:rgba(220,90,24,0.15);
+}
+
+/* step number badge above phone */
+.step-num{
+  font-size:11.5px;font-weight:900;letter-spacing:.5px;
+  padding:5px 16px;border-radius:50px;flex-shrink:0;
+}
+.step-num-basic{background:var(--green2);color:var(--green)}
+.step-num-lottery{background:var(--orange2);color:var(--orange)}
+
+/* phone mockup */
+.phone{
+  width:150px;height:306px;
+  background:#1A1A1A;border-radius:24px;padding:8px;
+  box-shadow:0 10px 28px rgba(0,0,0,0.18),0 2px 6px rgba(0,0,0,0.1);
+  position:relative;flex-shrink:0;
+  border:1px solid rgba(255,255,255,0.06);
 }
 .notch{
-  position:absolute;top:6px;left:50%;transform:translateX(-50%);
-  width:36px;height:12px;background:#1A1A1A;border-radius:0 0 8px 8px;z-index:3
+  position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:40px;height:13px;background:#1A1A1A;border-radius:0 0 9px 9px;z-index:3;
 }
 .screen{
-  border-radius:14px;
-  background:#fff;
-  overflow:hidden;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  position:relative;
+  border-radius:17px;background:#fff;overflow:hidden;
+  height:100%;display:flex;flex-direction:column;position:relative;
 }
-.screen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
+.screen img{width:100%;height:100%;object-fit:cover;object-position:top center}
 
-/* step badge */
-.step-tag{
-  position:absolute;top:16px;left:16px;
-  font-size:11px;font-weight:900;letter-spacing:0.5px;
-  padding:4px 12px;border-radius:50px;
-  z-index: 10;
+/* text panel */
+.step-body{
+  padding:2rem 2.5rem;
+  display:flex;flex-direction:column;
+  justify-content:center;gap:12px;
 }
-.tag-basic { background:var(--green2); color:var(--green); }
-.tag-lottery { background:var(--orange2); color:var(--orange); }
+.step-title{font-size:20px;font-weight:800;color:var(--brown);line-height:1.4}
+.step-desc{font-size:15px;color:var(--brown2);line-height:1.8}
 
-/* Card body */
-.card-body{
-  padding:1.5rem;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  border-top: 1px solid var(--border);
-  background:#fff;
-}
-.card-title{font-size:17.5px;font-weight:700;color:var(--brown);line-height:1.45}
-.card-desc{font-size:14.5px;color:var(--brown2);line-height:1.7}
-
-/* 提示區塊 */
-.notes{display:flex;flex-direction:column;gap:8px;margin-top:10px}
-.note{font-size:13.5px;padding:10px 14px;border-radius:10px;line-height:1.6;font-weight: 500}
+.notes{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.note{font-size:14px;padding:10px 16px;border-radius:10px;line-height:1.65;font-weight:500}
 .note-or{background:#FFF7F0;color:#A84000;border-left:4px solid var(--orange)}
 .note-gr{background:#F3F7EE;color:var(--green);border-left:4px solid var(--green)}
 .note-br{background:#FAF8F5;color:var(--brown2);border-left:4px solid var(--brown)}
 
-/* ── Full-width wide card ── */
-.card-wide{grid-column:1/-1}
-.card-wide-inner{display:grid;grid-template-columns:1fr 200px;align-items:stretch}
-.card-wide-body{padding:2rem;display:flex;flex-direction:column;gap:10px;justify-content:center}
-.card-wide-phone{
-  background: #FAF8F5;
-  display:flex;align-items:center;justify-content:center;
-  padding:1.5rem;
-  border-left:1px solid var(--border);
-  min-height: 310px;
-}
-.card-wide-phone-lottery{background: #FFFBF7;}
-
 /* ── Divider ── */
 .divider{display:flex;align-items:center;gap:16px;margin:4rem 0 3rem}
-.divider::before,.divider::after{content:'';flex:1;height:1px;background: linear-gradient(to right, transparent, rgba(139, 94, 60, 0.3), transparent)}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(139,94,60,.3),transparent)}
 .divider span{
-  font-size:14.5px; color: #8F4214; white-space:nowrap; font-weight:700;
-  background: #FFEFE2; padding: 6px 20px; border-radius: 50px;
-  border: 1px solid rgba(220, 90, 24, 0.15);
-  box-shadow: 0 2px 6px rgba(220, 90, 24, 0.05);
+  font-size:14px;color:#8F4214;white-space:nowrap;font-weight:700;
+  background:#FFEFE2;padding:7px 22px;border-radius:50px;
+  border:1px solid rgba(220,90,24,.15);
+  box-shadow:0 2px 6px rgba(220,90,24,.06);
 }
 
 /* ── Footer ── */
 .footer{text-align:center;padding:3rem 0 1.5rem;font-size:14px;color:var(--brown2);font-weight:500}
+
+/* ── Responsive ── */
+@media(max-width:640px){
+  .step-row{grid-template-columns:1fr}
+  .step-phone-panel{border-right:none;border-bottom:1px solid var(--border);padding:2rem}
+  .step-body{padding:1.5rem}
+  .step-title{font-size:17px}
+}
 </style>
 </head>
 <body>
@@ -201,218 +158,233 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 
 <div class="hero">
   <a href="https://lin.ee/skSMdyp" target="_blank">
-    <img src="hero-banner.jpg" alt="自備食器easy購・嘉eat永續新生活活動橫幅" style="cursor: pointer;">
+    <img src="hero-banner.jpg" alt="自備食器easy購・嘉eat永續新生活活動橫幅">
   </a>
   <div class="hero-sub">依照以下步驟操作，輕鬆享有專屬折扣優惠 🎉</div>
 </div>
 
+<!-- ===== 基本折扣步驟 ===== -->
 <div class="sec">
   <div class="sec-pill sec-basic">📱 基本折扣步驟</div>
   <div class="sec-line sec-line-basic"></div>
-  <div style="font-size:13.5px;color:var(--green);font-weight:700;white-space:nowrap;background:var(--green2);padding:4px 12px;border-radius:20px">所有人適用</div>
+  <div class="sec-badge sec-badge-basic">所有人適用</div>
 </div>
 
-<div class="grid">
+<div class="steps">
 
-<div class="card">
-  <div class="card-top">
-    <div class="step-tag tag-basic">STEP 1</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step1.png" alt="步驟1"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">掃描活動海報 QR code</div>
-    <div class="card-desc">找到店家張貼的活動海報，用手機掃描上面的 QR code。</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-top">
-    <div class="step-tag tag-basic">STEP 2</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step2.png" alt="步驟2"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">點擊「加入好友」</div>
-    <div class="card-desc">掃描後跳出 LINE 官方帳號頁面，點擊加入好友按鈕。</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-top">
-    <div class="step-tag tag-basic">STEP 3</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step3.png" alt="步驟3"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">點擊「聊天」</div>
-    <div class="card-desc">加入好友後，點擊畫面下方聊天按鈕，進入對話頁面。</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-top">
-    <div class="step-tag tag-basic">STEP 4</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step4.png" alt="步驟4"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">點選「享折扣請點我」</div>
-    <div class="card-desc">在聊天頁面選單中，點選享折扣請點我按鈕。</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-top">
-    <div class="step-tag tag-basic">STEP 5</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step5.png" alt="步驟5"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">填寫姓名、電話、店家代碼</div>
-    <div class="card-desc">依序填寫您的姓名、電話號碼，以及當前消費店家的代碼。</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-top">
-    <div class="step-tag tag-basic">STEP 6</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step6.png" alt="步驟6"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">確認折扣項數，點按正確數量</div>
-    <div class="card-desc">與店家確認折扣項數，點按正確數量。</div>
-    <div class="notes">
-      <div class="note note-or">🧋 冷飲店 / 40元餐飲店 → 點選 40元單品</div>
-      <div class="note note-or">🍱 80元餐飲店 → 點選 80元以上單品</div>
-      <div class="note note-gr">✅ 若不參加抽獎，點「確認送出」即完成</div>
-    </div>
-  </div>
-</div>
-
-<div class="card card-wide">
-  <div class="card-wide-inner">
-    <div class="card-wide-body">
-      <div class="step-tag tag-basic" style="position:relative;top:0;left:0;display:inline-block;margin-bottom:14px">STEP 7</div>
-      <div class="card-title" style="font-size:19px">出示畫面，享有現折優惠！</div>
-      <div class="card-desc" style="margin-top:6px">將此頁面出示給店家人員確認，即可立享現折優惠。完成本步驟即可結束，感謝您的參與。</div>
-      <div class="notes" style="margin-top:14px">
-        <div class="note note-br">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
+  <!-- STEP 1 -->
+  <div class="step-row">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-basic">STEP 1</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step1.png" alt="步驟1"></div>
       </div>
     </div>
-    <div class="card-wide-phone">
+    <div class="step-body">
+      <div class="step-title">掃描活動海報 QR code</div>
+      <div class="step-desc">找到店家張貼的活動海報，用手機掃描上面的 QR code。</div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-row">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-basic">STEP 2</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step2.png" alt="步驟2"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">點擊「加入好友」</div>
+      <div class="step-desc">掃描後跳出 LINE 官方帳號頁面，點擊加入好友按鈕。</div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-row">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-basic">STEP 3</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step3.png" alt="步驟3"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">點擊「聊天」</div>
+      <div class="step-desc">加入好友後，點擊畫面下方聊天按鈕，進入對話頁面。</div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-row">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-basic">STEP 4</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step4.png" alt="步驟4"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">點選「享折扣請點我」</div>
+      <div class="step-desc">在聊天頁面選單中，點選享折扣請點我按鈕。</div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-row">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-basic">STEP 5</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step5.png" alt="步驟5"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">填寫姓名、電話、店家代碼</div>
+      <div class="step-desc">依序填寫您的姓名、電話號碼，以及當前消費店家的代碼。</div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step-row">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-basic">STEP 6</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step6.png" alt="步驟6"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">確認折扣項數，點按正確數量</div>
+      <div class="step-desc">與店家確認折扣項數，點按正確數量。</div>
+      <div class="notes">
+        <div class="note note-or">🧋 冷飲店 / 40元餐飲店 → 點選 40元單品</div>
+        <div class="note note-or">🍱 80元餐飲店 → 點選 80元以上單品</div>
+        <div class="note note-gr">✅ 若不參加抽獎，點「確認送出」即完成</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step-row">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-basic">STEP 7</div>
       <div class="phone">
         <div class="notch"></div>
         <div class="screen"><img src="step7.png" alt="步驟7"></div>
       </div>
     </div>
-  </div>
-</div>
-
-</div><div class="divider"><span>✦ 以下為選填，欲參加抽獎者繼續 ✦</span></div>
-
-<div class="sec">
-  <div class="sec-pill sec-lottery">🎰 抽獎加碼步驟</div>
-  <div class="sec-line sec-line-lottery"></div>
-  <div style="font-size:13.5px;color:var(--orange);font-weight:700;white-space:nowrap;background:var(--orange2);padding:4px 12px;border-radius:20px">欲參加抽獎者</div>
-</div>
-
-<div class="grid">
-
-<div class="card">
-  <div class="card-top card-top-lottery">
-    <div class="step-tag tag-lottery">STEP 8</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step8.png" alt="步驟8"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">點開紫色區域填寫問卷</div>
-    <div class="card-desc">如果想獲得抽獎資格，請點開表單中的紫色區域填寫問卷。</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-top card-top-lottery">
-    <div class="step-tag tag-lottery">STEP 9</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step9.png" alt="步驟9"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">同意個人資料蒐集聲明</div>
-    <div class="card-desc">勾選確認同意個人資料蒐集、處理及利用。</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-top card-top-lottery">
-    <div class="step-tag tag-lottery">STEP 10</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step10.png" alt="步驟10"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">點選以作答</div>
-    <div class="card-desc">請依序點選答案選項完成問卷作答。</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-top card-top-lottery">
-    <div class="step-tag tag-lottery">STEP 11</div>
-    <div class="phone">
-      <div class="notch"></div>
-      <div class="screen"><img src="step11.png" alt="步驟11"></div>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="card-title">拍攝循環容器消費照片</div>
-    <div class="card-desc">拍攝一張您的自備循環容器於店內消費的照片。</div>
-    <div class="notes">
-      <div class="note note-or">🤖 安卓：先用內建相機拍照，再填問卷選相片</div>
-      <div class="note note-or">🍎 iPhone：直接於頁面點此拍照</div>
-      <div class="note note-gr">✅ 填答完畢，即可點選「確認送出」</div>
-    </div>
-  </div>
-</div>
-
-<div class="card card-wide" style="border-color:var(--orange);border-width:2px; box-shadow: 0 12px 30px rgba(224,90,19,0.06);">
-  <div class="card-wide-inner">
-    <div class="card-wide-body">
-      <div class="step-tag tag-lottery" style="position:relative;top:0;left:0;display:inline-block;margin-bottom:14px">STEP 12</div>
-      <div class="card-title" style="font-size:19px;color:var(--brown)">完成！享折扣＋獲抽獎機會 🎉</div>
-      <div class="card-desc" style="margin-top:6px">出示此畫面給店家確認，即可享有現折優惠，並獲得抽獎機會囉！</div>
-      <div class="notes" style="margin-top:14px">
+    <div class="step-body">
+      <div class="step-title">出示畫面，享有現折優惠！</div>
+      <div class="step-desc">將此頁面出示給店家人員確認，即可立享現折優惠。完成本步驟即可結束，感謝您的參與。</div>
+      <div class="notes">
         <div class="note note-br">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
       </div>
     </div>
-    <div class="card-wide-phone card-wide-phone-lottery">
+  </div>
+
+</div><!-- /steps -->
+
+<div class="divider"><span>✦ 以下為選填，欲參加抽獎者繼續 ✦</span></div>
+
+<!-- ===== 抽獎加碼步驟 ===== -->
+<div class="sec">
+  <div class="sec-pill sec-lottery">🎰 抽獎加碼步驟</div>
+  <div class="sec-line sec-line-lottery"></div>
+  <div class="sec-badge sec-badge-lottery">欲參加抽獎者</div>
+</div>
+
+<div class="steps">
+
+  <!-- STEP 8 -->
+  <div class="step-row lottery">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-lottery">STEP 8</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step8.png" alt="步驟8"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">點開紫色區域填寫問卷</div>
+      <div class="step-desc">如果想獲得抽獎資格，請點開表單中的紫色區域填寫問卷。</div>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step-row lottery">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-lottery">STEP 9</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step9.png" alt="步驟9"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">同意個人資料蒐集聲明</div>
+      <div class="step-desc">勾選確認同意個人資料蒐集、處理及利用。</div>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step-row lottery">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-lottery">STEP 10</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step10.png" alt="步驟10"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">點選以作答</div>
+      <div class="step-desc">請依序點選答案選項完成問卷作答。</div>
+    </div>
+  </div>
+
+  <!-- STEP 11 -->
+  <div class="step-row lottery">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-lottery">STEP 11</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="step11.png" alt="步驟11"></div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="step-title">拍攝循環容器消費照片</div>
+      <div class="step-desc">拍攝一張您的自備循環容器於店內消費的照片。</div>
+      <div class="notes">
+        <div class="note note-or">🤖 安卓：先用內建相機拍照，再填問卷選相片</div>
+        <div class="note note-or">🍎 iPhone：直接於頁面點此拍照</div>
+        <div class="note note-gr">✅ 填答完畢，即可點選「確認送出」</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 12 -->
+  <div class="step-row lottery" style="border-color:rgba(220,90,24,0.35);border-width:2px;box-shadow:0 12px 30px rgba(220,90,24,0.08)">
+    <div class="step-phone-panel">
+      <div class="step-num step-num-lottery">STEP 12</div>
       <div class="phone">
         <div class="notch"></div>
         <div class="screen"><img src="step12.png" alt="步驟12"></div>
       </div>
     </div>
+    <div class="step-body">
+      <div class="step-title">完成！享折扣＋獲抽獎機會 🎉</div>
+      <div class="step-desc">出示此畫面給店家確認，即可享有現折優惠，並獲得抽獎機會囉！</div>
+      <div class="notes">
+        <div class="note note-br">💡 填錯了？點最下方「撤銷按鈕」重填即可</div>
+      </div>
+    </div>
   </div>
-</div>
 
-</div><div class="footer">感謝您的參與！如有任何問題請洽詢官方LINE@客服 🙏</div>
+</div><!-- /steps -->
 
-</div></div></body>
+<div class="footer">感謝您的參與！如有任何問題請洽詢官方LINE@客服 🙏</div>
+
+</div></div>
+</body>
 </html>
