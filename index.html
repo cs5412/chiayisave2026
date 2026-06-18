@@ -4,115 +4,230 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:   #F7F4EE;
-  --brown:   #543520;
-  --brown2:  #7A6250;
-  --green:   #4A6B32;
-  --green2:  #F0F5EB;
-  --orange:  #DC5A18;
-  --orange2: #FFF4EB;
-  --border:  rgba(139,94,60,0.15);
-  --card-bg: #ffffff;
-  --font: 'Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;
-  --shadow-soft: 0 8px 24px rgba(84,53,32,0.07),0 2px 6px rgba(84,53,32,0.03);
-  --shadow-hover: 0 20px 40px rgba(84,53,32,0.12),0 4px 12px rgba(84,53,32,0.05);
+  --bg-main:      #EBF6FC; /* 盛夏晴空藍背景 */
+  --navy-dark:    #0A2540; /* 深海藍主體字 */
+  --navy-light:   #334E68; /* 次要說明字 */
+  --sharp-blue:   #0056B3; /* 調和後的日系皇家藍 */
+  --card-blue:    #E1F3FD; /* 輕透藍區塊背景 */
+  --accent-orange:#D84315; /* 沉穩橘 */
+  --accent-green: #2E7D32; /* 環保綠 */
+  --font: 'Noto Sans TC', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --panel-shadow: 0 10px 25px rgba(10,37,64,0.05), 0 2px 6px rgba(10,37,64,0.02);
 }
 
-html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-height:1.7;color:var(--brown);-webkit-font-smoothing:antialiased}
+html,body{
+  background:var(--bg-main);
+  font-family:var(--font);
+  font-size:16px;
+  font-weight: 400; 
+  line-height:1.7;
+  color:var(--navy-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 
-.shell{padding:3rem 1.5rem 5rem;min-height:100vh}
+.shell{padding:3rem 1.5rem 4rem;min-height:100vh}
 .w{max-width:960px;margin:0 auto}
 
-/* ── Hero ── */
-.hero{border-radius:20px;overflow:hidden;margin-bottom:3rem;box-shadow:0 12px 30px rgba(84,53,32,0.1);border:1px solid rgba(255,255,255,0.6)}
+/* ── Hero Banner ── */
+.hero{border-radius:24px;overflow:hidden;margin-bottom:3rem;box-shadow:var(--panel-shadow);border:3px solid #fff}
 .hero img{width:100%;display:block}
-.hero-sub{background:var(--brown);color:#fff;text-align:center;padding:1rem;font-size:15.5px;font-weight:500;letter-spacing:.5px}
+.hero-sub{background:var(--sharp-blue);color:#fff;text-align:center;padding:1.2rem;font-size:17px;font-weight:700;letter-spacing:1px}
 
-/* ── Section label ── */
-.sec{display:flex;align-items:center;gap:16px;margin:3.5rem 0 2rem}
-.sec-pill{font-size:15.5px;font-weight:700;padding:8px 24px;border-radius:50px;white-space:nowrap;background:#fff;box-shadow:0 4px 10px rgba(84,53,32,0.05)}
-.sec-basic{border:2px solid var(--green);color:var(--green)}
-.sec-lottery{border:2px solid var(--orange);color:var(--orange)}
+/* ── Intro Box ── */
+.intro-box{
+  background:#fff;
+  border-radius:24px;
+  padding:3rem;
+  margin-bottom:3rem;
+  box-shadow:var(--panel-shadow);
+  border: 1px solid rgba(0,86,179,0.08);
+}
+.intro-title{
+  font-size:22px;
+  font-weight:700;
+  color:var(--sharp-blue);
+  margin-bottom:1.8rem;
+  display:inline-block;
+}
+.intro-main-text {
+  border-left: 4px solid var(--accent-green);
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.intro-box p{
+  font-size:15.5px;
+  font-weight: 400;
+  color:var(--navy-light);
+  line-height:1.9;
+  text-align: justify;
+}
+.intro-box p strong {
+  color: var(--sharp-blue);
+  font-weight: 700;
+  background: transparent;
+}
+.intro-contact{
+  font-size:14.5px !important;
+  font-weight: 500;
+  background:#F5FAFE;
+  border:1px dashed rgba(0,86,179,0.25);
+  border-radius:14px;
+  padding:18px 22px;
+  color:var(--navy-light) !important;
+  line-height:1.8;
+}
+
+/* ── Section Label ── */
+.sec{display:flex;align-items:center;gap:16px;margin:4rem 0 1.8rem}
+.sec-pill{
+  font-size:17px;
+  font-weight:700;
+  padding:10px 26px;
+  border-radius:50px;
+  white-space:nowrap;
+  color:#fff;
+  box-shadow:0 6px 14px rgba(0,86,179,0.1);
+}
+.sec-basic{background:var(--sharp-blue)}
+.sec-lottery{background:var(--accent-orange)}
 .sec-line{flex:1;height:2px;border-radius:10px}
-.sec-line-basic{background:var(--green);opacity:.2}
-.sec-line-lottery{background:var(--orange);opacity:.2}
-.sec-badge{font-size:13px;font-weight:700;white-space:nowrap;padding:4px 14px;border-radius:20px}
-.sec-badge-basic{color:var(--green);background:var(--green2)}
-.sec-badge-lottery{color:var(--orange);background:var(--orange2)}
+.sec-line-basic{background:var(--sharp-blue);opacity:.2}
+.sec-line-lottery{background:var(--accent-orange);opacity:.2}
+.sec-badge{font-size:13.5px;font-weight:700;white-space:nowrap;padding:6px 16px;border-radius:20px;border:2px solid currentColor}
+.sec-badge-basic{color:var(--sharp-blue)}
+.sec-badge-lottery{color:var(--accent-orange)}
 
-/* ── Step rows ── */
-.steps{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem}
-
+/* ── Step Cards ── */
+.steps{display:flex;flex-direction:column;gap:2rem;margin-bottom:1rem}
 .step-row{
   display:grid;
-  grid-template-columns:320px 1fr;   /* wider phone column */
-  border-radius:20px;
-  border:1px solid var(--border);
-  background:var(--card-bg);
+  grid-template-columns:320px 1fr;
+  border-radius:24px;
+  background:#fff;
   overflow:hidden;
-  box-shadow:var(--shadow-soft);
-  transition:all .3s cubic-bezier(.25,.8,.25,1);
+  box-shadow:var(--panel-shadow);
+  border:2px solid transparent;
+  transition:all .3s ease;
 }
-.step-row:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);border-color:rgba(84,53,32,0.22)}
-.step-row.lottery{border-color:rgba(220,90,24,0.18)}
-.step-row.lottery:hover{border-color:rgba(220,90,24,0.4)}
+.step-row:hover{transform:translateY(-4px);border-color:var(--sharp-blue)}
+.step-row.lottery:hover{border-color:var(--accent-orange)}
 
-/* phone panel */
+/* Phone Mockup Panel */
 .step-phone-panel{
-  background:linear-gradient(160deg,#fafafa 0%,#f0ece4 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
-  padding:2rem 2rem 2.5rem;
-  border-right:1px solid var(--border);
+  background:linear-gradient(180deg, #FFFFFF 0%, var(--card-blue) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+  padding:2.5rem 2rem;
+  position:relative;
 }
-.step-row.lottery .step-phone-panel{background:linear-gradient(160deg,#fffdf9 0%,#ffe8d0 100%);border-right-color:rgba(220,90,24,0.15)}
+.step-row.lottery .step-phone-panel{background:linear-gradient(180deg, #FFFFFF 0%, #FFEFEA 100%)}
 
-/* step badge */
-.step-num{font-size:12px;font-weight:900;letter-spacing:.5px;padding:5px 18px;border-radius:50px;flex-shrink:0}
-.step-num-basic{background:var(--green2);color:var(--green)}
-.step-num-lottery{background:var(--orange2);color:var(--orange)}
+/* Step 標籤 (修正：7~11皆改為黃底黑字) */
+.step-num{
+  font-size:13px;
+  font-weight:700;
+  width:90px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.05);
+}
+.step-num-basic{background:#FFF100;color:#000}
+.step-num-lottery{background:#FFF100;color:#000}
 
-/* phone mockup — larger */
+/* Phone frame */
 .phone{
-  width:240px;height:490px;          /* ~2× bigger than before */
-  background:#1A1A1A;border-radius:36px;padding:10px;
-  box-shadow:0 16px 40px rgba(0,0,0,0.22),0 4px 10px rgba(0,0,0,0.12);
-  position:relative;flex-shrink:0;
-  border:1px solid rgba(255,255,255,0.06);
+  width:230px;height:470px;
+  background:#111;border-radius:36px;padding:10px;
+  box-shadow:0 14px 32px rgba(10,37,64,0.15);
+  position:relative;
 }
-.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:56px;height:16px;background:#1A1A1A;border-radius:0 0 12px 12px;z-index:3}
-.screen{border-radius:28px;background:#fff;overflow:hidden;height:100%;display:flex;flex-direction:column;position:relative}
-.screen img{width:100%;height:100%;object-fit:cover;object-position:top center;image-rendering:auto}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:56px;height:16px;background:#111;border-radius:0 0 12px 12px;z-index:3}
+.screen{border-radius:28px;background:#fff;overflow:hidden;height:100%}
+.screen img{width:100%;height:100%;object-fit:cover;object-position:top center}
 
-/* text panel */
-.step-body{padding:2.5rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:14px}
-.step-title{font-size:21px;font-weight:800;color:var(--brown);line-height:1.4}
-.step-desc{font-size:15.5px;color:var(--brown2);line-height:1.85}
+/* Text Detail Panel */
+.step-body{padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.step-title{font-size:21px;font-weight:700;color:var(--navy-dark);line-height:1.4}
+.step-desc{font-size:15.5px;font-weight:400;color:var(--navy-light);line-height:1.8}
 
-.notes{display:flex;flex-direction:column;gap:8px;margin-top:6px}
-.note{font-size:14.5px;padding:11px 16px;border-radius:10px;line-height:1.65;font-weight:500}
-.note-or{background:#FFF7F0;color:#A84000;border-left:4px solid var(--orange)}
-.note-gr{background:#F3F7EE;color:var(--green);border-left:4px solid var(--green)}
-.note-br{background:#FAF8F5;color:var(--brown2);border-left:4px solid var(--brown)}
+/* 提示標籤小橫條 */
+.notes{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.note{font-size:14.5px;padding:12px 18px;border-radius:12px;line-height:1.6;font-weight:700;display:flex;align-items:center;gap:8px}
+.note-or{background:#FFF4EB;color:#E65100;border:1px solid #FFCCBC}
+.note-gr{background:#E8F5E9;color:#1B5E20;border:1px solid #C8E6C9}
+.note-br{background:#F5F5F5;color:#424242;border:1px solid #E0E0E0}
 
-/* ── Divider ── */
-.divider{display:flex;align-items:center;gap:16px;margin:4rem 0 3rem}
-.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(139,94,60,.3),transparent)}
-.divider span{font-size:14px;color:#8F4214;white-space:nowrap;font-weight:700;background:#FFEFE2;padding:7px 22px;border-radius:50px;border:1px solid rgba(220,90,24,.15);box-shadow:0 2px 6px rgba(220,90,24,.06)}
+/* 中間分隔線 */
+.divider{display:flex;align-items:center;gap:16px;margin:4.5rem 0 3.5rem}
+.divider::before,.divider::after{content:'';flex:1;height:2px;background:var(--accent-orange);opacity:0.2}
+.divider span{font-size:15px;color:#fff;background:var(--accent-orange);padding:10px 26px;border-radius:50px;font-weight:700;box-shadow:0 6px 14px rgba(216,67,21,0.2)}
+
+/* ── Q&A 民眾端問答 ── */
+.qa-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+.qa-item {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  box-shadow: var(--panel-shadow);
+  border: 1px solid rgba(0,86,179,0.05);
+}
+.qa-q {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--sharp-blue);
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+.qa-q-prefix {
+  color: #FFB300; /* 修正：改為兼顧美觀與清晰閱讀度的深金黃色 */
+  margin-right: 6px;
+  font-size: 19px;
+}
+.qa-a {
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--navy-dark);
+  line-height: 1.85;
+  text-align: justify;
+  padding-left: 24px;
+}
+.qa-a strong {
+  color: var(--sharp-blue);
+  font-weight: 700;
+  background: transparent;
+}
 
 /* ── Footer ── */
-.footer{text-align:center;padding:3rem 0 1.5rem;font-size:14px;color:var(--brown2);font-weight:500}
+.footer{text-align:center;padding:1.5rem 0 2rem;font-size:15px;color:var(--navy-light);font-weight:700}
 
 /* ── Responsive ── */
 @media(max-width:700px){
+  .intro-box{padding:2rem 1.5rem; margin-bottom: 2rem;}
+  .intro-main-text{padding-left: 1rem;}
+  .sec{margin: 3rem 0 1.5rem;}
   .step-row{grid-template-columns:1fr}
-  .step-phone-panel{border-right:none;border-bottom:1px solid var(--border);padding:2rem}
-  .phone{width:180px;height:368px}
-  .step-body{padding:1.5rem}
-  .step-title{font-size:17px}
+  .step-phone-panel{border-bottom:1px solid rgba(10,37,64,0.05);padding:2rem}
+  .phone{width:190px;height:390px}
+  .step-body{padding:2rem 1.5rem}
+  .step-title{font-size:19px}
+  .qa-item{padding:1.5rem}
+  .qa-a{padding-left:0;margin-top:0.5rem}
 }
 </style>
 </head>
@@ -120,11 +235,22 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 <div class="shell">
 <div class="w">
 
+<!-- Banner 區塊 -->
 <div class="hero">
   <a href="https://lin.ee/skSMdyp" target="_blank">
     <img src="hero-banner.jpg" alt="自備食器easy購・嘉eat永續新生活活動橫幅">
   </a>
   <div class="hero-sub">依照以下步驟操作，輕鬆享有專屬折扣優惠 🎉</div>
+</div>
+
+<!-- ===== 活動說明 ===== -->
+<div class="intro-box">
+  <div class="intro-title">📋 活動說明</div>
+  <div class="intro-main-text">
+    <p>近年國人飲食習慣改變，外食與外送服務日益普及，一次性免洗容器使用量大幅增加，連帶垃圾量也居高不下。此外，免洗容器為提升防水性與耐用性，內層多含塑膠淋膜，在高溫、高油環境下，可能釋出塑化劑等有害物質危害人體健康。為降低民眾對一次性免洗容器的依賴，守護民眾健康，及減少免洗容器垃圾量，嘉義市政府環境保護局推出「自備食器easy購・嘉eat永續新生活」，鼓勵民眾養成日常消費自備容器的好習慣。</p>
+    <p>即日起至115年9月30日止，只要攜帶環保杯或環保餐盒，前往合作店家外帶消費並掃描海報QR Code填寫表單，即可現享折扣優惠。<strong>飲品類單品滿40元現折10元</strong>（連鎖飲料店依法再多折5元）；<strong>餐點類單品滿40元現折10元、滿80元現折20元</strong>。此外只要完整填寫表單問卷，並上傳使用循環容器消費當下照片，即可參加抽獎，獎項包含<strong>MacBook、iPad及Nintendo Switch</strong>等，在享有優惠之餘，還有機會把好禮帶回家，歡迎大家踴躍參與。</p>
+  </div>
+  <p class="intro-contact">📣 更多活動資訊可至嘉義市政府環境保護局官方臉書，或搜尋「自備食器easy購・嘉eat永續新生活」加入粉絲團查詢（LINE ID：@142qmqev），亦可撥打 05-2251775 分機 4816 洽詢。</p>
 </div>
 
 <!-- ===== 基本折扣步驟 ===== -->
@@ -231,10 +357,9 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- (原 STEP 7 已刪除) -->
+</div>
 
-</div><!-- /steps basic -->
-
+<!-- 分隔線 -->
 <div class="divider"><span>✦ 以下為選填，欲參加抽獎者繼續 ✦</span></div>
 
 <!-- ===== 抽獎加碼步驟 ===== -->
@@ -246,7 +371,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
 
 <div class="steps">
 
-  <!-- STEP 7 (原8) -->
+  <!-- STEP 7 -->
   <div class="step-row lottery">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 7</div>
@@ -261,7 +386,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- STEP 8 (原9) -->
+  <!-- STEP 8 -->
   <div class="step-row lottery">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 8</div>
@@ -276,7 +401,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- STEP 9 (原10) -->
+  <!-- STEP 9 -->
   <div class="step-row lottery">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 9</div>
@@ -291,7 +416,7 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- STEP 10 (原11) -->
+  <!-- STEP 10 -->
   <div class="step-row lottery">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 10</div>
@@ -311,8 +436,8 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-  <!-- STEP 11 (原12) -->
-  <div class="step-row lottery" style="border-color:rgba(220,90,24,0.35);border-width:2px;box-shadow:0 12px 30px rgba(220,90,24,0.08)">
+  <!-- STEP 11 -->
+  <div class="step-row lottery" style="border-color:var(--accent-orange); border-width:3px;">
     <div class="step-phone-panel">
       <div class="step-num step-num-lottery">STEP 11</div>
       <div class="phone">
@@ -329,7 +454,88 @@ html,body{background:var(--cream);font-family:var(--font);font-size:16px;line-he
     </div>
   </div>
 
-</div><!-- /steps lottery -->
+</div>
+
+<!-- ===== 民眾端 Q&A ===== -->
+<div class="sec">
+  <div class="sec-pill" style="background: var(--navy-dark);">💬 民眾端 Q&A</div>
+  <div class="sec-line" style="background: var(--navy-dark); opacity: .2;"></div>
+</div>
+
+<div class="qa-container">
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q1.</span>什麼是「自備探險嘉」？真的有錢可以領嗎？</div>
+    <div class="qa-a">答：沒錯！只要您自備杯子、餐盒去嘉義市的合作店家外帶，現場掃碼填個簡單小問卷，店家就會直接折現金給您，請記得每份餐點或飲品都須要以循環容器盛裝才享有折扣，買越多折越多！</div>
+  </div>
+  
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q2.</span>買飲料跟買飯折的錢一樣嗎？怎麼算最划算？</div>
+    <div class="qa-a">
+      答：看您買什麼喔：<br>
+      • <strong>買飲料：</strong>單杯滿 40 元，現場直接少付 10 元。<br>
+      • <strong>買便當/小吃：</strong>滿 40 元折 10 元；如果是滿 80 元以上的餐點，直接折 20 元！<br>
+      ※ 記得要「自備容器外帶」才有喔！
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q3.</span>我沒帶杯子，如果用店家的循環杯也可以折嗎？</div>
+    <div class="qa-a">答：可以！只要這間店有提供「重複使用的循環容器」，就算您沒自備，使用店裡的循環餐具外帶，一樣享有上面的折價優惠喔。</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q4.</span>要怎麼拿到折扣？流程會很麻煩嗎？</div>
+    <div class="qa-a">
+      答：超簡單！只要三步驟：<br>
+      1. 點餐前掃描店裡的活動海報 QR Code 填問卷。<br>
+      2. 結帳時跟老闆說「我有自備容器，並要參加自備探險嘉折扣活動」。<br>
+      3. 給老闆看手機畫面確認，老闆就會依據餐點份數及對應循環容器份數，現場每份折扣 10 元或 20 元囉！
+    </div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q5.</span>為什麼填完問卷後，還要給老闆看手機？</div>
+    <div class="qa-a">答：因為老闆要確認您買的數量跟填的是不是一樣（例如：買 2 個大便當就要填 2 份折 40 元）。老闆確認後可能會點一下您的手機，那是為了對帳正確，請放心交給老闆確認！</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q6.</span>除了現場折錢，聽說還可以抽獎？</div>
+    <div class="qa-a">答：對！問卷最後面記得把「個人資料」填完整，就可以跨進抽獎活動。獎品有 iPad、Switch 等好禮，沒填寫完整資料就只能折價不能抽獎。</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q7.</span>抽獎名單要去哪裡看？怎麼知道我有目標中獎？</div>
+    <div class="qa-a">答：我們會公佈在「嘉義市政府環境保護局」的臉書粉絲團。中獎的話，本工作團隊也將根據您留的電話主動聯絡您，所以電話千萬別填錯！</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q8.</span>我幫全家人買了 5 杯飲料，可以一次折 50 元嗎？</div>
+    <div class="qa-a">答：沒問題！只要這 5 杯，每杯單品都滿 40 元且都用自備容器裝，在問卷份數填「5」，給老闆確認後就能現折 50 元。</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q9.</span>所有的嘉義市店家都有優惠嗎？</div>
+    <div class="qa-a">答：只有配合店家且貼活動海報的合作店家才有喔。您可以打開 LINE OA 的地圖，看看附近有哪些店可以去探險領折扣！</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q10.</span>如果我填完問卷才發現買的份數填錯了，怎麼辦？</div>
+    <div class="qa-a">答：別緊張！如您已填表並按送出，如果發現填錯了，請點手機畫面下方的「修改回覆內容」按鈕，就可以跳回上一頁改份數。改好再請老闆確認無誤後，就能正確領取折扣了。</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q"><span class="qa-q-prefix">Q11.</span>訂餐自備循環容器折扣如何認定份數或折扣份數?</div>
+    <div class="qa-a">
+      答：<br><br>
+      <strong>範例一：</strong><br>
+      王小明只準備 1 個便當盒，訂了 2 份特餐，單品價格皆為 85 元，但該循環容器僅能盛裝 1 份餐點，無法容納 2 份餐點，因此店家依據使用循環容器單品數量給予折扣為 1 份共 20 元，另 1 份因不符合活動規定不予以折扣。<br><br>
+      <strong>範例二：</strong><br>
+      林小美準備 2 個便當盒，同樣訂了 2 份特餐，單品價格皆為 65 元，因此店家依據使用循環容器餐點單品數量給予折扣為 2 份，各折 10 元，共折扣 20 元。<br><br>
+      <strong>範例三：</strong><br>
+      陳奶奶準備 1 個保溫鍋，訂了 3 份特餐，單品價格皆為 100 元，但該循環容器可以盛裝 3 份餐點，因此店家依據使用循環容器餐點單品數量給予折扣為 3 份，各折 20 元，共折扣 60 元。
+    </div>
+  </div>
+</div>
 
 <div class="footer">感謝您的參與！如有任何問題請洽詢官方LINE@客服 🙏</div>
 
